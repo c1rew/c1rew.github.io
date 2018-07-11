@@ -475,7 +475,7 @@
 <p>最近我想到可以使用GDB当做C的伪交互式编程环境。我一直将使用gdb作为学习C语言的工具，而不仅仅是调试C语言，并且这有很多的乐趣。</p>
 <p>我这篇文章的目的，是告诉你，gdb是学习C语言的很好的工具。我将向你介绍一些我喜欢的gdb命令，然后我将演示如何使用gdb来理解，众所周知的C语言的棘手问题：数组和指针的区别。</p>
 <a id="more"></a>
-<h1 id="gdb概述"><a href="#gdb概述" class="headerlink" title="gdb概述"></a>gdb概述</h1><p>以下面这小段C程序作为开始，minimal.c<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1337</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1><span id="gdb概述">gdb概述</span></h1><p>以下面这小段C程序作为开始，minimal.c<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1337</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>注意，程序中并没有其他内容，也没有单独的printf语句，看好了，这就是使用gdb学习C语言的勇敢新世界。</p>
 <p>用gcc -g 选项对其进行编译，使得目标文件带有gdb调试信息，然后用gdb调试它。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gcc -g minimal.c -o minimal</span><br><span class="line"><span class="meta">$</span> gdb minimal</span><br></pre></td></tr></table></figure></p>
 <p>这下你就能看到一个非常明显的gdb提示符，我之前承诺的交互式编程环境，这就是了：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) print 1 + 2</span><br><span class="line"><span class="meta">$</span>1 = 3</span><br></pre></td></tr></table></figure></p>
@@ -488,7 +488,7 @@
 <p>程序现在停在第三行，在 i 变量初始化之前，非常有趣，即使 i 没有初始化，我们也可以用print命令查看i的值<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(gdb) print i</span><br><span class="line"><span class="meta">$</span>3 = 32767</span><br></pre></td></tr></table></figure></p>
 <p>在C语言中，一个没有初始化的局部变量的值是未定义的，所以gdb可能会在你的屏幕上输出与我不一样的值；</p>
 <p>接下来，可以使用next命令执行当前行：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(gdb) next</span><br><span class="line">(gdb) print i</span><br><span class="line"><span class="meta">$</span>4 = 1337</span><br></pre></td></tr></table></figure></p>
-<h1 id="用x命令检查内存"><a href="#用x命令检查内存" class="headerlink" title="用x命令检查内存"></a>用x命令检查内存</h1><p>在C语言中，变量存在标签连续的内存块中，一个变量的内存块，由以下两个数字特征来决定：</p>
+<h1><span id="用x命令检查内存">用x命令检查内存</span></h1><p>在C语言中，变量存在标签连续的内存块中，一个变量的内存块，由以下两个数字特征来决定：</p>
 <ol>
 <li>内存块中第一个字节的数值地址；</li>
 <li>用字节衡量的内存块大小，变量块的大小由变量类型决定。</li>
@@ -504,9 +504,9 @@
 <p>上面的标志标明我要检查的是4个字节，并格式化为16进制数，每次一个字节；我选择检查4个字节是因为 i变量在内存中占用的大小就是4个字节，打印的结果，显示出了它在内存中原始的字节挨着字节的表示。</p>
 <p>有个需要铭记的微妙的地方就是，在英特尔（Intel）处理器的机器上，原始字节是按照“小端”顺序存储的；与人类文字符号不同，它的低位数是存在内存的前面部分的。</p>
 <p>一个验证这个问题的方法就是：给i一个特定的值，并重新检查相应的内存块；<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(gdb) set var i = 0x12345678</span><br><span class="line">(gdb) x/4xb &amp;i</span><br><span class="line">0x7fff5fbff584: 0x78 0x56 0x34 0x12</span><br></pre></td></tr></table></figure></p>
-<h1 id="用ptype命令检查类型"><a href="#用ptype命令检查类型" class="headerlink" title="用ptype命令检查类型"></a>用ptype命令检查类型</h1><p>ptype命令可能是我最喜欢的命令了，它会告诉我一个C表达式的类型（变量，函数等）；<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(gdb) ptype i</span><br><span class="line">type = int</span><br><span class="line">(gdb) ptype &amp;i</span><br><span class="line">type = int *</span><br><span class="line">(gdb) ptype main</span><br><span class="line">type = int (void)</span><br></pre></td></tr></table></figure></p>
+<h1><span id="用ptype命令检查类型">用ptype命令检查类型</span></h1><p>ptype命令可能是我最喜欢的命令了，它会告诉我一个C表达式的类型（变量，函数等）；<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(gdb) ptype i</span><br><span class="line">type = int</span><br><span class="line">(gdb) ptype &amp;i</span><br><span class="line">type = int *</span><br><span class="line">(gdb) ptype main</span><br><span class="line">type = int (void)</span><br></pre></td></tr></table></figure></p>
 <p>类型本身在C语言中是挺复杂的，但是ptype会给你一个交互式的查看方式。</p>
-<h1 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h1><p>C语言的数组是一个神奇且微妙的概念，我们这一节的计划是写个小程序，并在gdb调试中探索下数组的意义；</p>
+<h1><span id="指针和数组">指针和数组</span></h1><p>C语言的数组是一个神奇且微妙的概念，我们这一节的计划是写个小程序，并在gdb调试中探索下数组的意义；</p>
 <p>编写以下代码，arrays.c:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>用-g标志编译，用gdb运行起来，然后next到初始化数组那一行；<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gcc -g arrays.c -o arrays</span><br><span class="line"><span class="meta">$</span> gdb arrays</span><br><span class="line">(gdb) break main</span><br><span class="line">(gdb) run</span><br><span class="line">(gdb) next</span><br></pre></td></tr></table></figure></p>
 <p>这个时候你就可以打印出a的内容，并检查它的类型：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(gdb) print a</span><br><span class="line"><span class="meta">$</span>1 = &#123;1, 2, 3&#125;</span><br><span class="line">(gdb) ptype a</span><br><span class="line">type = int [3]</span><br></pre></td></tr></table></figure></p>
@@ -530,7 +530,7 @@
 <p>通过对a的退化值和&amp;a进行指针运算，你可以观察下两者的行为区别：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">= preserve do</span><br><span class="line">    :escaped</span><br><span class="line">        (gdb) print a + 1</span><br><span class="line">        $10 = (int *) 0x7fff5fbff570</span><br><span class="line">        (gdb) print &amp;a + 1</span><br><span class="line">        $11 = (int (*)[3]) 0x7fff5fbff578</span><br></pre></td></tr></table></figure></p>
 <p>注意到，a+1 就是给指针加4，而给&amp;a + 1是给指针加12！</p>
 <p>指向a的指针实际上是退化成&amp;a[0]：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">= preserve do</span><br><span class="line">    :escaped</span><br><span class="line">        (gdb) print &amp;a[0]</span><br><span class="line">        $11 = (int *) 0x7fff5fbff56c</span><br></pre></td></tr></table></figure></p>
-<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>希望我说服了你，gdb是个学习C语言环境，它简洁而又富有探索意味。你可以打印表达式的值，检查内存的连续字节，用ptype鼓捣一下类型系统。</p>
+<h1><span id="结论">结论</span></h1><p>希望我说服了你，gdb是个学习C语言环境，它简洁而又富有探索意味。你可以打印表达式的值，检查内存的连续字节，用ptype鼓捣一下类型系统。</p>
 <p>如果你想知道更多的如何通过gdb学习C语言的内容，以下是我的一些建议：</p>
 <ol>
 <li><p>使用gdb去通过这个挑战 <a href="https://blogs.oracle.com/ksplice/entry/the_ksplice_pointer_challenge" target="_blank" rel="noopener">Ksplice pointer challenge.</a>；</p>
@@ -667,7 +667,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -825,7 +825,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gdb概述"><span class="nav-number">1.</span> <span class="nav-text">gdb概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用x命令检查内存"><span class="nav-number">2.</span> <span class="nav-text">用x命令检查内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用ptype命令检查类型"><span class="nav-number">3.</span> <span class="nav-text">用ptype命令检查类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指针和数组"><span class="nav-number">4.</span> <span class="nav-text">指针和数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结论"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">gdb概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">用x命令检查内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">用ptype命令检查类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">指针和数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">结论</span></a></li></ol></div>
             
 
           </div>
@@ -884,7 +884,7 @@
   
   <div class="theme-info">
     <i class="fa fa-file-word-o"></i>
-    <span class="post-count">全站共11.3k字</span>
+    <span class="post-count">全站共12.6k字</span>
   </div>
 </div>
 

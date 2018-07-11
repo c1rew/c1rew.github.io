@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python 入坑指北]]></title>
+    <url>%2F2018%2F07%2F11%2FPython-%E5%85%A5%E5%9D%91%E6%8C%87%E5%8C%97%2F</url>
+    <content type="text"><![CDATA[Python 入坑指北 1. 几个问题 2. 环境相关 2.1 Anaconda 2.2 IPython 2.3 Jupyter Notebook 3. Python语言基础 4. 思维导图 Python 入坑指北1. 几个问题 使用Python2 还是Python3？ 、为什么安装Python package的时候出现各种莫名其妙的错误？ 怎么增加一个第三方的package，很多包还有多级的依赖关系，如何更好解决？ 2. 环境相关2.1 Anaconda什么是Anaconda，有什么优点？ Anaconda 是python的一个发行版，包含了conda、python和大量的数据科学相关的库，官方网站的主标题是：The Most Popular Python Data Science Platform； 其中Conda是一个管理工具，可以管理多种语言的包、依赖和环境；包含Python, R, Ruby, Lua, Scala, Java, JavaScript, C/C++, FORTRAN；如果开发中需要同时使用Python2和Python3，Conda可以轻松帮你搞定不同版本之间的环境切换，也可轻松管理不同版本的包，这下安装包的时候就so easy，再也不会出现特别多的莫名其妙的错误了； Anaconda包含了Conda、Python和大量的数据科学相关的库，如果不需要那么多库，也可以选择Miniconda进行安装； 123456789101112# 安装一个packageconda install pkg_name# 同时安装多个packageconda install numpy scipy pandas# 安装指定版本的packageconda install numpy=1.10# 移除一个packageconda remove pkg_name# 升级conda update# 查看所有packageconda list 下面再看下用conda管理不同的python版本环境； 12345678910111213141516# 创建一个python2.7版本的环境并安装pandas包conda create -n py2 python=2.7 pandas# 执行后你会发现，conda自动帮你把所有pandas依赖的包都装好了# 进入py2环境（windows使用 activate py2)source activate py2# 退出当前环境（windows使用 deactivate)source deactivate# 删除环境conda env remove -n py2# 列出所有创建的环境conda env list# 如果分享python代码需要分享同样的开发环境的时候，可以讲当前环境导出conda env export &gt; environment.yaml# 从YAML文件创建环境conda env create -f environment.yaml 环境相关的内容就到此，有了Anaconda，基本就不用再操心所谓的版本冲突问题，包安装问题，集成好的管理环境，也就不再需要烦恼环境问题，把精力耗费在写代码吧。 2.2 IPythonIPython是一种基于Python的交互式解释器；相较于原生的Python Shell，IPython提供了更为强大的编辑和交互功能。拥有诸多优点： 帮助信息完善，且支持模糊匹配（print?, print??, np.*load*?）；对象后面添加问号，一样能列出相关信息（称为对象的内省）； 支持TAB补全代码，使用历史输入（%history/%hist/hist命令） %run运行外部python脚本，%load加载外部python脚本，%paste运行剪贴板内容； 支持shell的终端快捷键； magic command（%timeit, %debug?, %pwd, etc…）； %matplotlib inline 可视化图内置显示； 2.3 Jupyter NotebookJupyter Notebook （此前被称为 IPython notebook）是个开源的Web应用，可以创建和分享包含代码、方程式、可视化界面和文本的文档，拥有以下优点： 可选择的语言：支持运行40 多种编程语言，包含Python、R、Julia、Scala等； 分享文档：可通过邮件、Dropbox、Github、Jupyter Notebook Viewer分享创建的文档； 交互式输出：代码可以生成丰富且带交互式的输出结果，包括HTML、图片、视频、LaTeX还有自定义的MIME格式； 大数据集成：通过Python、R或者Scala，使用例如Apache Spark等大数据工具，使用pandas、scikit-learn、 ggplot2、TensorFlow等对同一份数据进行处理； Jupyter Notebook 还有很多可以探寻的功能，比如可以远程访问等，具体操作慢慢探索。 jupyter notebook —no-browser 启动时不自动启动浏览器 jupyter notebook —generate-config 生成配置，修改访问IP，增加密码登录等 3. Python语言基础 缩进分割（4个空格），不像C++、Java使用分号分割每一个执行语句 没有括号，循环及控制语句使用冒号(:) 不建议赋值语句写在同一行，例如a = 5; b = 6; c = 7 一切皆对象 注释：使用#开头 动态数据类型，a=5，在不用重新声明的情况下，a=’foo’也是对的 强类型，a=5;b=’5’; a+b就会报错，在弱类型语言中(php,js,perl)会进行隐式转换 可变和不可变对象 可变对象 lists dicts NumPy arrays 不可变对象 string tuples 标量/原子类型 None str ‘hello’ “world” 多行使用’’’或者””” bytes Bytes Unicode float 除法：3/2=1.5, 3//2=1 bool True False int 类型转换 Dates and times 控制流 if, elif, and else for loops for value in collection: for a,b,c in iterator: while loops pass range 三元表达式(Ternary expressions) value = true-expr if condition else false-expr 内置函数 __builtin__ 查看所有内置函数 dir(__builtin__) 查看某个类的内置方法 dir(list) dir(tuple) 4. 思维导图以上内容整理简介的思维导图，以供后续复习：]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据库设计那些事]]></title>
     <url>%2F2018%2F06%2F18%2F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E9%82%A3%E4%BA%9B%E4%BA%8B%2F</url>
     <content type="text"><![CDATA[概述数据库设计作为DBA的重要一课，也是作为开发人员认识数据库的一个基本课程，在左耳朵耗子的极客时间课程里，推荐了慕课网的《数据库设计那些事》，此文是学习的总结，画了完整的一个思维导图，如有错误，还望联系并指出。 思维导图]]></content>

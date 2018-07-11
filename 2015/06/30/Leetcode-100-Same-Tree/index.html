@@ -470,13 +470,13 @@
       
 
       
-        <h2 id="100-Same-Tree"><a href="#100-Same-Tree" class="headerlink" title="100.Same Tree"></a>100.Same Tree</h2><p>Given two binary trees, write a function to check if they are equal or not.</p>
+        <h2><span id="100same-tree">100.Same Tree</span></h2><p>Given two binary trees, write a function to check if they are equal or not.</p>
 <p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
 <p>给定两个二叉树，写个函数来检查他们是否相等；</p>
 <p>考虑两个二叉树的相等于否，需要判断他们结构上是否一致并且对应每个节点上的值是否相等。</p>
 <a id="more"></a>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*** Definition for binary tree</span></span><br><span class="line"><span class="comment">* struct TreeNode &#123;</span></span><br><span class="line"><span class="comment">* 		int val;</span></span><br><span class="line"><span class="comment">* 		TreeNode *left;</span></span><br><span class="line"><span class="comment">* 		TreeNode *right;</span></span><br><span class="line"><span class="comment">* 		TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment">* &#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSameTree</span><span class="params">(TreeNode *p, TreeNode *q)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span> &amp;&amp; q == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> ((!p &amp;&amp; q) || (p &amp;&amp; !q) || (p-&gt;val != q-&gt;val)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> isSameTree(p-&gt;left, q-&gt;left) &amp;&amp; isSameTree(p-&gt;right, q-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="tip"><a href="#tip" class="headerlink" title="tip:"></a>tip:</h2><ol>
+<h2><span id="tip">tip:</span></h2><ol>
 <li>两树都为空，返回true； </li>
 <li>两树其中一个为空，另一个不为空，或者值不相等，返回false； </li>
 <li>当前节点值相等，则嵌套判断两树的左右树是否相等；</li>
@@ -608,7 +608,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -766,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#100-Same-Tree"><span class="nav-number">1.</span> <span class="nav-text">100.Same Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip"><span class="nav-number">2.</span> <span class="nav-text">tip:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">100.Same Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">tip:</span></a></li></ol></div>
             
 
           </div>
@@ -825,7 +825,7 @@
   
   <div class="theme-info">
     <i class="fa fa-file-word-o"></i>
-    <span class="post-count">全站共11.3k字</span>
+    <span class="post-count">全站共12.6k字</span>
   </div>
 </div>
 

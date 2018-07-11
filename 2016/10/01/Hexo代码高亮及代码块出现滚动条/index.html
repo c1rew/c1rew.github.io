@@ -471,20 +471,20 @@
 
       
         <p>昨晚不知道因为改了什么配置，导致原先默认的Next主题的代码高亮失效了，接下来就是一番折腾。</p>
-<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><p>确认下站点的_config.yml，包含以下配置:</p>
+<h2><span id="代码高亮">代码高亮</span></h2><p>确认下站点的_config.yml，包含以下配置:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">highlight:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  line_number:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  auto_detect:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  tab_replace:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>接下来，就不能按照之前代码只用缩进块来表示为代码块了，这样不能高亮啊，真是神奇了</p>
 <p>此时应该使用Markdown语法的，用``` code block ```，用六个 ` 把代码包起来<br>```cpp (这里就可以随意发挥了，肯定不仅仅是cpp啊，java/javascript/C/objc/shell…写不下了)<br>    此处应有代码<br>```</p>
 <p>可以了，设置完成，就可以happy般的去 hexo clean;hexo g;hexo s, 本地查看一下代码高亮效果；</p>
-<h2 id="代码块滚动条"><a href="#代码块滚动条" class="headerlink" title="代码块滚动条"></a>代码块滚动条</h2><p>本以为这样就万事大吉了，查看更新的网页，代码是高亮了，却出现了恶心的滚动条，不管代码是几行，都会出现那个滚动条，还是左右两边都有，作为强迫症患者怎么可以忍受，接着Google了一大圈，找到了良药</p>
+<h2><span id="代码块滚动条">代码块滚动条</span></h2><p>本以为这样就万事大吉了，查看更新的网页，代码是高亮了，却出现了恶心的滚动条，不管代码是几行，都会出现那个滚动条，还是左右两边都有，作为强迫症患者怎么可以忍受，接着Google了一大圈，找到了良药</p>
 <p><a href="http://www.wenlong.date/2016/07/31/use-github-and-hexo-build-blog-summary/" target="_blank" rel="noopener">使用github和hexo搭建博客问题总结</a></p>
 <p>感谢该博主精心研究</p>
-<h3 id="对应需要修改的内容"><a href="#对应需要修改的内容" class="headerlink" title="对应需要修改的内容"></a>对应需要修改的内容</h3><p><strong>node_modules/hexo-util/lib/highlight.js</strong> </p>
+<h3><span id="对应需要修改的内容">对应需要修改的内容</span></h3><p><strong>node_modules/hexo-util/lib/highlight.js</strong> </p>
 <p>将第一段代码修改成下面第二段代码，div标签修改为span，并增加换行br</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span><br><span class="line">  line = lines[i];</span><br><span class="line">  <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span><br><span class="line">  numbers += <span class="string">'&lt;div class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/div&gt;'</span>;</span><br><span class="line">  content += <span class="string">'&lt;div class="line'</span>;</span><br><span class="line">  content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span><br><span class="line">  content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/div&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = lines.length; i &lt; len; i++) &#123;</span><br><span class="line">  line = lines[i];</span><br><span class="line">  <span class="keyword">if</span> (tab) line = replaceTabs(line, tab);</span><br><span class="line">  numbers += <span class="string">'&lt;span class="line"&gt;'</span> + (firstLine + i) + <span class="string">'&lt;/span&gt;&lt;br&gt;'</span>;</span><br><span class="line">  content += <span class="string">'&lt;span class="line'</span>;</span><br><span class="line">  content += (mark.indexOf(firstLine + i) !== <span class="number">-1</span>) ? <span class="string">' marked'</span> : <span class="string">''</span>;</span><br><span class="line">  content += <span class="string">'"&gt;'</span> + line + <span class="string">'&lt;/span&gt;&lt;br&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上"><a href="#代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上" class="headerlink" title="代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上``` ```"></a>代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上``` ```</h4>
+<h4><span id="代码高亮又恢复如初就是得把之前几篇博客的代码中加上">代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上``` ```</span></h4>
       
     </div>
 
@@ -611,7 +611,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -769,7 +769,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码高亮"><span class="nav-number">1.</span> <span class="nav-text">代码高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块滚动条"><span class="nav-number">2.</span> <span class="nav-text">代码块滚动条</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对应需要修改的内容"><span class="nav-number">2.1.</span> <span class="nav-text">对应需要修改的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上"><span class="nav-number">2.1.1.</span> <span class="nav-text">代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上``` ```</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">代码高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">代码块滚动条</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">对应需要修改的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.1.</span> <span class="nav-text">代码高亮又恢复如初，就是得把之前几篇博客的代码中，加上``` ```</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -828,7 +828,7 @@
   
   <div class="theme-info">
     <i class="fa fa-file-word-o"></i>
-    <span class="post-count">全站共11.3k字</span>
+    <span class="post-count">全站共12.6k字</span>
   </div>
 </div>
 
