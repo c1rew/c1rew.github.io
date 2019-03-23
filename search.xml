@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[读书笔记：《凤凰项目》（一）]]></title>
+    <url>%2F2019%2F03%2F23%2F%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E3%80%8A%E5%87%A4%E5%87%B0%E9%A1%B9%E7%9B%AE%E3%80%8B%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[《凤凰项目》讲述了一个IT运维的传奇故事，一位IT经理临危受命，经过多番努力，将公司从死亡边缘拉了回来。跌宕起伏的故事情节，也生动地描述了现代IT组织的管理过程中可能遇到的各种事件，服务中断、服务器崩溃、数据丢失、客户隐私数据泄露、办公室政治的博弈等等；想得到与想不到的事均穿插其中；但是从始至终有一条线很清晰，就是主人公一直在通过各种方法，来改善公司以往破旧不堪且岌岌可危的IT系统，以此来支撑公司的持续高效运营。 主人公比尔临时被推上了IT副总裁的位置，开始看到这个公司的IT管理的混乱不堪，一切都毫无章法，项目任务归属不清、IT变更没有记录、紧急状况没有预案、安全合规更是无稽之谈；他开始尝试梳理所有事情，让一切慢慢变得清晰起来， 列出目前所有项目，各个项目对应的事项 列出目前正在运维的项目 列出所有需要变更的事项 整理出了一堆表格与列表后，他终于有点摸清了整个IT运维的相关事情，并对各种项目做了优先级排列，需要变更的事项也根据优先级做了分类； 在这一切都有条不紊地进行时，却时不时出现不同原因导致的服务中断，相关人员不得不停下手上的工作，投入到救火的队伍中，此时，他发现自己漏了一个很大的工作事项，就是“计划外工作”，也可称为“救火的工作”，这时，他总算摸清了四种类型的IT运维工作，分别是： 业务项目（新项目部署、调试、上线） IT运维项目（已上线项目新增的运维任务） 变更任务（运维变更，bug修复变更，需求变更） 计划外工作（紧急bug，宕机，服务中断） 项目管理中的两大需要梳理清楚的东西： 人：有多少人，这些人能干什么事，能做多少事； 事：有多少事，这些事需要什么人来干，需要多少人来干； 另外还有一个很关键的因素穿插其中，那就是“时间”，时间是一个很魔幻的东西，毕竟有些事，不是有人就可以做得成的，有一个比较极端的例子就是：一个女人十月怀胎生出一个娃，但是千万别想让十个女人一个月生出一个娃。 在时间不够的情况下，如果没有办法加时间，那就要砍需求、去除部分非核心功能，如果功能不允许去除，那就得忍受项目上线有bug，而且可能是影响客户体验的bug；不可能在有限的时间里，既要实现功能，又要有质量保障，那就基本是不可能的事儿了，纯属天荒夜谈。 故事到这，讲了基本的四种工作类型是什么，过程中，注重的是理清流程、梳理任务、分门别类，为下一步工作做好铺垫。 接下来是力挽狂澜，顺风顺水，还是屡战屡败，越挫越勇，故事还没看完，下回接着讲…]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>读书笔记</tag>
+        <tag>项目管理</tag>
+        <tag>技术管理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Leetcode]21.Merge Two Sorted Lists]]></title>
     <url>%2F2019%2F03%2F22%2FLeetcode-21-Merge-Two-Sorted-Lists%2F</url>
     <content type="text"><![CDATA[21. Merge Two Sorted ListsMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4 给定有序的两个数组，合并两个数组，并保持有序。这其实是归并排序的其中一个步骤。 1234567891011121314151617181920212223242526272829/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123; if(l1 == NULL &amp;&amp; l2 == NULL) return NULL; if(l1 == NULL &amp;&amp; l2 != NULL) return l2; if(l1 != NULL &amp;&amp; l2 == NULL) return l1; ListNode* result; if (l1-&gt;val &lt;= l2-&gt;val) &#123; result = l1; l1 = l1-&gt;next; result-&gt;next = mergeTwoLists(l1, l2); &#125; else &#123; result = l2; l2 = l2-&gt;next; result-&gt;next = mergeTwoLists(l1, l2); &#125; return result; &#125;&#125;; tip: 两个参数是否空指针需要判断 result提交过程错了两次，一次是因为空指针，一次是因为判断大小的语句里，还多余判断了一次下一个元素是不是空指针，导致少了个元素。 Runtime: 20 ms, faster than 9.56% of C++ online submissions for Merge Two Sorted Lists.Memory Usage: 9.9 MB, less than 88.65% of C++ online submissions for Merge Two Sorted Lists. 内存占用太大，还有改进空间。 有个疑惑，其中一段代码改成以下这样后，内存占用竟然升高到10.1M 1234567if (l1-&gt;val &lt;= l2-&gt;val) &#123; result = l1; result-&gt;next = mergeTwoLists(l1-&gt;next, l2); &#125; else &#123; result = l2; result-&gt;next = mergeTwoLists(l1, l2-&gt;next); &#125;]]></content>
