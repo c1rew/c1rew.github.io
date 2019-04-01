@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Leetcode]709. To Lower Case]]></title>
+    <url>%2F2019%2F04%2F01%2FLeetcode-709-To-Lower-Case%2F</url>
+    <content type="text"><![CDATA[709. To Lower CaseImplement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase. 题目很简单，说的就是英文字符串，转换成小写。 Example 1: 12Input: &quot;Hello&quot;Output: &quot;hello&quot; Example 2: 12Input: &quot;here&quot;Output: &quot;here&quot; Example 3: 12Input: &quot;LOVELY&quot;Output: &quot;lovely&quot; 方案一首先想到的就是遍历字符串，判断每一个字符是否是大写，如果是大写，则按照ASCII码，转换成小写后，添加到一个新的字符串里； 123456789101112131415class Solution &#123;public: string toLowerCase(string str) &#123; string out; for(char &amp;i : str) &#123; if ((i &gt;= 65) &amp;&amp; (i &lt;= 90)) &#123; i=i+32; out.push_back(i); &#125; else &#123; out.push_back(i); &#125; &#125; return out; &#125;&#125;; resultRuntime: 4 ms, faster than 100.00% of C++ online submissions for To Lower Case. Memory Usage: 8.3 MB, less than 50.42% of C++ online submissions for To Lower Case. 结果看起来还可以，内存占用有点高，想着怎么优化一下； 方案二string out，占用了一个新建的字符串，是不是可以在原来的字符串里面修改？try try see. 12345678910111213class Solution &#123;public: string toLowerCase(string str) &#123; unsigned int len = str.length(); for(unsigned i = 0; i &lt; len; ++i) &#123; char ch = str[i]; if ((ch &gt;= 65) &amp;&amp; (ch &lt;= 90)) &#123; str[i]=ch+32; &#125; &#125; return str; &#125;&#125;; resultRuntime: 4 ms, faster than 100.00% of C++ online submissions for To Lower Case. Memory Usage: 8 MB, less than 99.17% of C++ online submissions for To Lower Case. 内存占用降低了点，效果还可以。]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>算法</tag>
+        <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ARTS week-2]]></title>
     <url>%2F2019%2F03%2F31%2FARTS-week-2%2F</url>
     <content type="text"><![CDATA[ARTS week-2Algorithm[Leetcode]771.Jewels and Stones ReviewWhat I have learned after several AI projects 文章讲述了作者做AI项目的一些经验之谈 在进入AI浪潮之前，问自己三个问题： 你的业务是否是数据驱动 是否有合适并且有效的数据来支撑AI方案的实施 是否真正理解了AI是怎么工作的（如何产生效益） 小范围试错，没必要一开始就替换之前可以持续运行的系统，可能带来不可估量的损失； 知道自己想要什么，需要给AI一个明确的目标，这需要商业决策者和数据科学家共同理解并定义； AI项目的持续运行，除了架构、数据、算法外，更重要的是“人”，除了开发者，也包括使用这个AI系统，并给予真诚反馈的人； 数据集，并且是标注过的数据集，正确的数据集是关键； 基础设施：高性能的计算机，还有高带宽，高存储； AI是把双刃剑，能助你腾飞，也可能因此翻船。 Tip类Unix系统命令whatis，用来查询一个指定命令的简介信息，简要操作就像下面的动图一样。 Share读书笔记：《凤凰项目》（下）]]></content>
