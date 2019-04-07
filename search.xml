@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ARTS week-3]]></title>
+    <url>%2F2019%2F04%2F07%2FARTS-week-3%2F</url>
+    <content type="text"><![CDATA[ARTS week-3Algorithm[Leetcode]709. To Lower Case ReviewYour Productivity Hinges on How You Arrange Your Desk 你的工作效率取决于如何整理桌面 专注于实用 实践极简主义 基于你的工作和思考方式进行整理 要事放在最前面 实用多个屏幕 多一些绿色植物 适应“零桌面”习惯，保持整洁 将你的目标放在显眼的位置 放一张好看的照片 TipMac OS tags ，高效整理及访问文件或者文件夹； 最近频繁使用hexo blog 文件夹及对应的文章，还有一些整理过的文件夹，多级访问后，需要频繁点击鼠标，今天刚刚发现可以对不同的文件及文件夹进行Tag，打标签处理，将文件进行分类，快速访问。 Share[机器学习]线性回归公式推导]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[机器学习]线性回归公式推导]]></title>
     <url>%2F2019%2F04%2F07%2F%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%2F</url>
     <content type="text"><![CDATA[线性回归 公式推导线性回归是机器学习最基本的一个模型，接下来会写几篇各个模型的公式推导，后续再用代码实现下基本的模型运行。 矩阵表示数据集：D=\{(x_{1}, y_{1}),(x_{2}, y_{2}) \cdots (x_{m}, y_{m})\}​ x_{i} \in \mathbb{R^{n}}( n维)，y_{i} \in \mathbb{R}，i=1,2 \cdots m​ X=\begin{pmatrix} x_{1} & x_{2} & \cdots & x_{m} \end{pmatrix}^{T} =\ \begin{pmatrix} x^{T}_{1}\\ x^{T}_{2}\\ \vdots \\ x^{T}_{m} \end{pmatrix} =\begin{pmatrix} x_{11} & x_{12} & \cdots & x_{1n}\\ x_{21} & x_{22} & \cdots & x_{2n}\\ \vdots & \vdots & \ddots & \vdots \\ x_{m1} & x_{m2} & \cdots & x_{mn} \end{pmatrix}_{m*n}​Y=\begin{pmatrix} y_{1}\\ y_{2}\\ \vdots \\ y_{n} \end{pmatrix}_{n*1}，w= \begin{pmatrix} w_{1}\\ w_{2}\\ \vdots \\ w_{n} \end{pmatrix}_{n*1}​目标函数 f(x) = w^{T}X 其中，几个关键点需要注意： m表示样本数量，n 表示特征维度； W​ 的维度是和样本的特征维度一样的 默认情况下x_{i} 是列向量，但是样本矩阵X 中的每一个对应的样本是行向量； 另外可以增加一个偏置b，目标函数为f(x) = wx+b ，其中 w_{0} = 1, x_{0} =\begin{pmatrix} x_{01}\\ x_{02}\\ \vdots \\ x_{0n} \end{pmatrix}_{n*1}=b= \begin{pmatrix} b_{1}\\ b_{2}\\ \vdots \\ b_{n} \end{pmatrix}_{n*1} 这样表示后，其实f(x)=wx+b 也可以简化成f(x)=wx，x_{i}增加了一维而已，计算过程是不会有任何影响的，我们暂且使用f(x) = w^{T}X 来进行下述的推导。 损失函数： L( w) =\sum ^{m}_{i=1}\left\Vert w^{T} x_{i} -y_{i}\right\Vert ^{2}_{2} \\ =\sum ^{m}_{i=1}\left( w^{T} x_{i} -y_{i}\right)^{2}\\ =\begin{pmatrix} w^{T} x_{1} -y_{1} & w^{T} x_{2} -y_{2} & \cdots & w^{T} x_{m} -y_{m} \end{pmatrix}\begin{pmatrix} w^{T} x_{1} -y_{1}\\ w^{T} x_{2} -y_{2}\\ \vdots \\ w^{T} x_{m} -y_{m} \end{pmatrix}其中左边一项先做化简，右边相乘的是左边的转置： \begin{pmatrix} w^{T} x_{1} -y_{1} & w^{T} x_{2} -y_{2} & \cdots & w^{T} x_{m} -y_{m} \end{pmatrix} \\ =\begin{pmatrix} w^{T} x_{1} & w^{T} x_{2} & \cdots & w^{T} x_{m} \end{pmatrix} -\begin{pmatrix} y_{1} & y_{2} & \cdots & y_{m} \end{pmatrix}\\ =\ w^{T}\begin{pmatrix} x_{1} & x_{2} & \cdots & x_{m} \end{pmatrix} -\begin{pmatrix} y_{1} & y_{2} & \cdots & y_{m} \end{pmatrix}\\ =w^{T} X^{T} -Y^{T}\therefore \ L( w) =\left( w^{T} X^{T} -Y^{T}\right)\left( w^{T} X^{T} -Y^{T}\right)^{T}\\ =\left( w^{T} X^{T} -Y^{T}\right)( Xw-Y)\\ =w^{T} X^{T} Xw-w^{T} X^{T} Y-Y^{T} Xw+Y^{T} Y\\ =\ w^{T} X^{T} Xw-2w^{T} X^{T} Y+Y^{T} Y要求得损失函数L(w)的最小值所对应的w，就是求L(w)的导数为零的w的值； \frac{\partial L( w)}{\partial w} =2X^{T} Xw-2X^{T} Y=0\\ \therefore \ X^{T} Xw=X^{T} Y\\ \therefore w=\left( X^{T} X\right)^{-1} X^{T} Y今天先写到这，后续再更新下“几何解释”，未完待续… reference 线代随笔12-线性回归的矩阵推导 机器学习-白板推导系列-线性回归（Linear Regression） 最小二乘法-维基百科]]></content>
