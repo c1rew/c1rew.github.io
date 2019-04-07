@@ -98,20 +98,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="蝦米逮寄">
-<meta property="og:url" content="https://c1rew.github.io/tags/Hexo/index.html">
+  <meta name="description" content="线性回归 公式推导线性回归是机器学习最基本的一个模型，接下来会写几篇各个模型的公式推导，后续再用代码实现下基本的模型运行。 矩阵表示数据集：D=\{(x_{1}, y_{1}),(x_{2}, y_{2}) \cdots (x_{m}, y_{m})\}​ x_{i} \in \mathbb{R^{n}}( n维)，y_{i} \in \mathbb{R}，i=1,2 \cdots m​">
+<meta name="keywords" content="机器学习,Machine Learning,线性回归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[机器学习]线性回归公式推导">
+<meta property="og:url" content="https://c1rew.github.io/2019/04/07/机器学习-线性回归公式推导/index.html">
 <meta property="og:site_name" content="蝦米逮寄">
+<meta property="og:description" content="线性回归 公式推导线性回归是机器学习最基本的一个模型，接下来会写几篇各个模型的公式推导，后续再用代码实现下基本的模型运行。 矩阵表示数据集：D=\{(x_{1}, y_{1}),(x_{2}, y_{2}) \cdots (x_{m}, y_{m})\}​ x_{i} \in \mathbb{R^{n}}( n维)，y_{i} \in \mathbb{R}，i=1,2 \cdots m​">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-07T14:48:27.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蝦米逮寄">
+<meta name="twitter:title" content="[机器学习]线性回归公式推导">
+<meta name="twitter:description" content="线性回归 公式推导线性回归是机器学习最基本的一个模型，接下来会写几篇各个模型的公式推导，后续再用代码实现下基本的模型运行。 矩阵表示数据集：D=\{(x_{1}, y_{1}),(x_{2}, y_{2}) \cdots (x_{m}, y_{m})\}​ x_{i} \in \mathbb{R^{n}}( n维)，y_{i} \in \mathbb{R}，i=1,2 \cdots m​">
 
 
 
 
 
 
-  <link rel="canonical" href="https://c1rew.github.io/tags/Hexo/">
+  <link rel="canonical" href="https://c1rew.github.io/2019/04/07/机器学习-线性回归公式推导/">
 
 
 
@@ -121,7 +126,7 @@
   };
 </script>
 
-  <title>标签: Hexo | 蝦米逮寄</title>
+  <title>[机器学习]线性回归公式推导 | 蝦米逮寄</title>
   
 
 
@@ -169,7 +174,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -241,7 +246,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -363,86 +368,321 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Hexo<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://c1rew.github.io/2019/04/07/机器学习-线性回归公式推导/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="c1rew">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蝦米逮寄">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2016/10/01/Hexo代码高亮及代码块出现滚动条/" itemprop="url">
-            
-              <span itemprop="name">Hexo代码高亮及代码块出现滚动条</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">[机器学习]线性回归公式推导
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-10-01T09:21:37+08:00" content="2016-10-01">
-          10-01
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-07 22:09:55" itemprop="dateCreated datePublished" datetime="2019-04-07T22:09:55+08:00">2019-04-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/07/机器学习-线性回归公式推导/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/07/机器学习-线性回归公式推导/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/07/机器学习-线性回归公式推导/" class="leancloud_visitors" data-flag-title="[机器学习]线性回归公式推导">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+          <div>
+            <span class="post-meta-item-icon">
+              <i class="fa fa-file-word-o"></i>
+            </span>
+            <span class="post-count">
+              字数统计：313 字
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+              <i class="fa fa-clock-o"></i>
+            </span>
+            <span class="post-count">
+              阅读时长：1 分钟
+            </span>
+          </div>
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2><span id="线性回归-公式推导">线性回归 公式推导</span></h2><p>线性回归是机器学习最基本的一个模型，接下来会写几篇各个模型的公式推导，后续再用代码实现下基本的模型运行。</p>
+<h2><span id="矩阵表示">矩阵表示</span></h2><p>数据集：<script type="math/tex">D=\{(x_{1}, y_{1}),(x_{2}, y_{2}) \cdots (x_{m}, y_{m})\}​</script></p>
+<script type="math/tex; mode=display">x_{i} \in \mathbb{R^{n}}( n维)，y_{i} \in \mathbb{R}，i=1,2 \cdots m​</script><a id="more"></a>
+<script type="math/tex; mode=display">X=\begin{pmatrix}
+x_{1} & x_{2} & \cdots  & x_{m}
+\end{pmatrix}^{T} =\ \begin{pmatrix}
+x^{T}_{1}\\
+x^{T}_{2}\\
+\vdots \\
+x^{T}_{m}
+\end{pmatrix} =\begin{pmatrix}
+x_{11} & x_{12} & \cdots  & x_{1n}\\
+x_{21} & x_{22} & \cdots  & x_{2n}\\
+\vdots  & \vdots  & \ddots  & \vdots \\
+x_{m1} & x_{m2} & \cdots  & x_{mn}
+\end{pmatrix}_{m*n}​</script><script type="math/tex; mode=display">Y=\begin{pmatrix}
+y_{1}\\
+y_{2}\\
+\vdots \\
+y_{n}
+\end{pmatrix}_{n*1}，w= \begin{pmatrix}
+w_{1}\\
+w_{2}\\
+\vdots \\
+w_{n}
+\end{pmatrix}_{n*1}​</script><p>目标函数 <script type="math/tex">f(x) = w^{T}X</script></p>
+<p>其中，几个关键点需要注意：</p>
+<ul>
+<li><script type="math/tex">m</script>表示样本数量，<script type="math/tex">n</script> 表示特征维度；</li>
+<li><script type="math/tex">W​</script> 的维度是和样本的特征维度一样的 </li>
+<li>默认情况下<script type="math/tex">x_{i}</script> 是<strong>列向量</strong>，但是样本矩阵<script type="math/tex">X</script> 中的每一个对应的样本是<strong>行向量</strong>；</li>
+</ul>
+<p>另外可以增加一个偏置<script type="math/tex">b</script>，目标函数为<script type="math/tex">f(x) = wx+b</script> ，其中 <script type="math/tex">w_{0} = 1, x_{0} =\begin{pmatrix}
+x_{01}\\
+x_{02}\\
+\vdots \\
+x_{0n}
+\end{pmatrix}_{n*1}=b= \begin{pmatrix}
+b_{1}\\
+b_{2}\\
+\vdots \\
+b_{n}
+\end{pmatrix}_{n*1}</script></p>
+<p>这样表示后，其实<script type="math/tex">f(x)=wx+b</script> 也可以简化成<script type="math/tex">f(x)=wx</script>，<script type="math/tex">x_{i}</script>增加了一维而已，计算过程是不会有任何影响的，我们暂且使用<script type="math/tex">f(x) = w^{T}X</script> 来进行下述的推导。</p>
+<p>损失函数：</p>
+<script type="math/tex; mode=display">L( w) =\sum ^{m}_{i=1}\left\Vert w^{T} x_{i} -y_{i}\right\Vert ^{2}_{2} \\
+=\sum ^{m}_{i=1}\left( w^{T} x_{i} -y_{i}\right)^{2}\\
+=\begin{pmatrix}
+w^{T} x_{1} -y_{1} & w^{T} x_{2} -y_{2} & \cdots  & w^{T} x_{m} -y_{m}
+\end{pmatrix}\begin{pmatrix}
+w^{T} x_{1} -y_{1}\\
+w^{T} x_{2} -y_{2}\\
+\vdots \\
+w^{T} x_{m} -y_{m}
+\end{pmatrix}</script><p>其中左边一项先做化简，右边相乘的是左边的<strong>转置</strong>：</p>
+<script type="math/tex; mode=display">\begin{pmatrix}
+w^{T} x_{1} -y_{1} & w^{T} x_{2} -y_{2} & \cdots  & w^{T} x_{m} -y_{m}
+\end{pmatrix} \\
+=\begin{pmatrix}
+w^{T} x_{1} & w^{T} x_{2} & \cdots  & w^{T} x_{m}
+\end{pmatrix} -\begin{pmatrix}
+y_{1} & y_{2} & \cdots  & y_{m}
+\end{pmatrix}\\
+=\ w^{T}\begin{pmatrix}
+x_{1} & x_{2} & \cdots  & x_{m}
+\end{pmatrix} -\begin{pmatrix}
+y_{1} & y_{2} & \cdots  & y_{m}
+\end{pmatrix}\\
+=w^{T} X^{T} -Y^{T}</script><script type="math/tex; mode=display">\therefore \ L( w) =\left( w^{T} X^{T} -Y^{T}\right)\left( w^{T} X^{T} -Y^{T}\right)^{T}\\
+=\left( w^{T} X^{T} -Y^{T}\right)( Xw-Y)\\
+=w^{T} X^{T} Xw-w^{T} X^{T} Y-Y^{T} Xw+Y^{T} Y\\
+=\ w^{T} X^{T} Xw-2w^{T} X^{T} Y+Y^{T} Y</script><p>要求得损失函数<script type="math/tex">L(w)</script>的最小值所对应的<script type="math/tex">w</script>，就是求<script type="math/tex">L(w)</script>的导数为零的<script type="math/tex">w</script>的值；</p>
+<script type="math/tex; mode=display">\frac{\partial L( w)}{\partial w} =2X^{T} Xw-2X^{T} Y=0\\
+\therefore \ X^{T} Xw=X^{T} Y\\
+\therefore w=\left( X^{T} X\right)^{-1} X^{T} Y</script><p>今天先写到这，后续再更新下“几何解释”，未完待续…</p>
+<h2><span id="reference">reference</span></h2><ol>
+<li><a href="http://bourneli.github.io/linear-algebra/calculus/2016/04/30/linear-algebra-12-linear-regression-matrix-calulation.html" target="_blank" rel="noopener">线代随笔12-线性回归的矩阵推导</a></li>
+<li><a href="https://www.bilibili.com/video/av31989606/?p=1" target="_blank" rel="noopener">机器学习-白板推导系列-线性回归（Linear Regression）</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95" target="_blank" rel="noopener">最小二乘法-维基百科</a></li>
+</ol>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
+          
+            <a href="/tags/Machine-Learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          
+            <a href="/tags/线性回归/" rel="tag"><i class="fa fa-tag"></i> 线性回归</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/01/Leetcode-709-To-Lower-Case/" rel="next" title="[Leetcode]709. To Lower Case">
+                <i class="fa fa-chevron-left"></i> [Leetcode]709. To Lower Case
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -462,8 +702,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -638,6 +887,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">线性回归 公式推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">矩阵表示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">reference</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -800,6 +1066,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -845,6 +1115,8 @@
 
 
 
+
+  
 
 
   
@@ -1166,7 +1438,60 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1185,20 +1510,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-
-
-
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
