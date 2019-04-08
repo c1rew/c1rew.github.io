@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Leetcode]804. Unique Morse Code Words]]></title>
+    <url>%2F2019%2F04%2F08%2FLeetcode-804-Unique-Morse-Code-Words%2F</url>
+    <content type="text"><![CDATA[804. Unique Morse Code WordsInternational Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: &quot;a&quot; maps to &quot;.-&quot;, &quot;b&quot; maps to &quot;-...&quot;, &quot;c&quot; maps to &quot;-.-.&quot;, and so on. For convenience, the full table for the 26 letters of the English alphabet is given below: 1[&quot;.-&quot;,&quot;-...&quot;,&quot;-.-.&quot;,&quot;-..&quot;,&quot;.&quot;,&quot;..-.&quot;,&quot;--.&quot;,&quot;....&quot;,&quot;..&quot;,&quot;.---&quot;,&quot;-.-&quot;,&quot;.-..&quot;,&quot;--&quot;,&quot;-.&quot;,&quot;---&quot;,&quot;.--.&quot;,&quot;--.-&quot;,&quot;.-.&quot;,&quot;...&quot;,&quot;-&quot;,&quot;..-&quot;,&quot;...-&quot;,&quot;.--&quot;,&quot;-..-&quot;,&quot;-.--&quot;,&quot;--..&quot;] Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, “cba” can be written as “-.-..—…”, (which is the concatenation “-.-.” + “-…” + “.-“). We’ll call such a concatenation, the transformation of a word. Return the number of different transformations among all words we have. 1234567891011Example:Input: words = [&quot;gin&quot;, &quot;zen&quot;, &quot;gig&quot;, &quot;msg&quot;]Output: 2Explanation: The transformation of each word is:&quot;gin&quot; -&gt; &quot;--...-.&quot;&quot;zen&quot; -&gt; &quot;--...-.&quot;&quot;gig&quot; -&gt; &quot;--...--.&quot;&quot;msg&quot; -&gt; &quot;--...--.&quot;There are 2 different transformations, &quot;--...-.&quot; and &quot;--...--.&quot;. Note: The length of words will be at most 100. Each words[i] will have length in range [1, 12]. words[i] will only consist of lowercase letters. 大概解释一下题目：摩斯码，26个小写字母各对应一串密码串，不同的英文单词可能出现同样的摩斯码； 输入：一个数组，数组中包含多个单词； 输出：单词转换成摩斯码后，总的摩斯编码类别有几种； 解题思路： 要得到不同的摩斯码，就是不能有重复的，就可以用集合(set)来存储转换后的摩斯码； 26个小写字母对应的摩斯码是固定的，就用数组直接初始化； 字母a对应的ASCII码为97，数组第一个元素的索引index为0，直接减去97即可得到对应的摩斯码编码； 循环遍历vector中的word，循环遍历word中的每一个字母； 代码如下： 123456789101112131415161718class Solution &#123;public: int uniqueMorseRepresentations(vector&lt;string&gt;&amp; words) &#123; string morse[26] = &#123;".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."&#125;; set&lt;string&gt; morse_set; string str_morse; for (string &amp;word : words) &#123; unsigned len = word.length(); for(unsigned i = 0; i &lt; len; ++i) &#123; unsigned index = (unsigned)(word[i]-97); str_morse.append(morse[index]); &#125; morse_set.insert(str_morse); str_morse.clear(); &#125; return morse_set.size(); &#125;&#125;; resultRuntime: 4 ms, faster than 100.00% of C++ online submissions for Unique Morse Code Words.Memory Usage: 8.7 MB, less than 100.00% of C++ online submissions for Unique Morse Code Words.]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>算法</tag>
+        <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ARTS week-3]]></title>
     <url>%2F2019%2F04%2F07%2FARTS-week-3%2F</url>
     <content type="text"><![CDATA[ARTS week-3Algorithm[Leetcode]709. To Lower Case ReviewYour Productivity Hinges on How You Arrange Your Desk 你的工作效率取决于如何整理桌面 专注于实用 实践极简主义 基于你的工作和思考方式进行整理 要事放在最前面 实用多个屏幕 多一些绿色植物 适应“零桌面”习惯，保持整洁 将你的目标放在显眼的位置 放一张好看的照片 TipMac OS tags ，高效整理及访问文件或者文件夹； 最近频繁使用hexo blog 文件夹及对应的文章，还有一些整理过的文件夹，多级访问后，需要频繁点击鼠标，今天刚刚发现可以对不同的文件及文件夹进行Tag，打标签处理，将文件进行分类，快速访问。 Share[机器学习]线性回归公式推导]]></content>
