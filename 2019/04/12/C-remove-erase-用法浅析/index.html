@@ -98,20 +98,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="蝦米逮寄">
-<meta property="og:url" content="https://c1rew.github.io/tags/Hexo/index.html">
+  <meta name="description" content="C++ remove erase 用法浅析remove 用法浅析写这篇浅析完全是意料之外的，只怪才疏学浅。 刷[Leetcode]929. Unique Email Addresses的时候不能用boost库，一脸懵逼，为了去除整个字符串中的“.”，boost库中就是一句话boost::erase_all(str, ‘.’)，但是stl库中没有现成的接口可以使用，求助Google，发现了erase">
+<meta name="keywords" content="C++,Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ remove erase 用法浅析">
+<meta property="og:url" content="https://c1rew.github.io/2019/04/12/C-remove-erase-用法浅析/index.html">
 <meta property="og:site_name" content="蝦米逮寄">
+<meta property="og:description" content="C++ remove erase 用法浅析remove 用法浅析写这篇浅析完全是意料之外的，只怪才疏学浅。 刷[Leetcode]929. Unique Email Addresses的时候不能用boost库，一脸懵逼，为了去除整个字符串中的“.”，boost库中就是一句话boost::erase_all(str, ‘.’)，但是stl库中没有现成的接口可以使用，求助Google，发现了erase">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-12T14:56:05.326Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蝦米逮寄">
+<meta name="twitter:title" content="C++ remove erase 用法浅析">
+<meta name="twitter:description" content="C++ remove erase 用法浅析remove 用法浅析写这篇浅析完全是意料之外的，只怪才疏学浅。 刷[Leetcode]929. Unique Email Addresses的时候不能用boost库，一脸懵逼，为了去除整个字符串中的“.”，boost库中就是一句话boost::erase_all(str, ‘.’)，但是stl库中没有现成的接口可以使用，求助Google，发现了erase">
 
 
 
 
 
 
-  <link rel="canonical" href="https://c1rew.github.io/tags/Hexo/">
+  <link rel="canonical" href="https://c1rew.github.io/2019/04/12/C-remove-erase-用法浅析/">
 
 
 
@@ -121,7 +126,7 @@
   };
 </script>
 
-  <title>标签: Hexo | 蝦米逮寄</title>
+  <title>C++ remove erase 用法浅析 | 蝦米逮寄</title>
   
 
 
@@ -169,7 +174,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -241,7 +246,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
 
     
     
@@ -363,86 +368,262 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Hexo<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
+
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://c1rew.github.io/2019/04/12/C-remove-erase-用法浅析/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="c1rew">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="蝦米逮寄">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/2016/10/01/Hexo代码高亮及代码块出现滚动条/" itemprop="url">
-            
-              <span itemprop="name">Hexo代码高亮及代码块出现滚动条</span>
-            
-          </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">C++ remove erase 用法浅析
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-10-01T09:21:37+08:00" content="2016-10-01">
-          10-01
-        </time>
-      </div>
+              
+            
+          </h1>
+        
 
-    </header>
-  </article>
+        <div class="post-meta">
+          <span class="post-time">
 
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-12 22:53:33" itemprop="dateCreated datePublished" datetime="2019-04-12T22:53:33+08:00">2019-04-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/12/C-remove-erase-用法浅析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/12/C-remove-erase-用法浅析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/12/C-remove-erase-用法浅析/" class="leancloud_visitors" data-flag-title="C++ remove erase 用法浅析">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+          <div>
+            <span class="post-meta-item-icon">
+              <i class="fa fa-file-word-o"></i>
+            </span>
+            <span class="post-count">
+              字数统计：628 字
+            </span>
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+              <i class="fa fa-clock-o"></i>
+            </span>
+            <span class="post-count">
+              阅读时长：3 分钟
+            </span>
+          </div>
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2><span id="c-remove-erase-用法浅析">C++ remove erase 用法浅析</span></h2><h3><span id="remove-用法浅析">remove 用法浅析</span></h3><p>写这篇浅析完全是意料之外的，只怪才疏学浅。</p>
+<p>刷<a href="https://c1rew.github.io/2019/04/09/Leetcode-929-Unique-Email-Addresses/">[Leetcode]929. Unique Email Addresses</a>的时候不能用boost库，一脸懵逼，为了去除整个字符串中的“.”，boost库中就是一句话boost::erase_all(str, ‘.’)，但是stl库中没有现成的接口可以使用，求助Google，发现了erase和remove结合使用可以达到目的；</p>
+<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">local.erase(remove(local.begin(), local.end(), <span class="string">'.'</span>), local.end()); <span class="comment">// 删除local字符串中所有的'.'</span></span><br></pre></td></tr></table></figure>
+<p>但是这样的用法没玩过，不是特别好理解，写个demo验证下，先看代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str = <span class="string">"helloworld"</span>; </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"before remove: "</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">string</span>::iterator ret_end = remove(str.begin(), str.end(), <span class="string">'o'</span>);  <span class="comment">// remove字符串中所有的‘o’，此时并没有真正删除</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"after remove: "</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"ret_end: "</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">string</span>::iterator i = str.begin(); i &lt; ret_end; i++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; *i;    <span class="comment">// 这里打印的结果是从str的开头，到截止remove返回的应该结束的位置；</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    str = <span class="string">"helloworld"</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"before erase: "</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    str.erase(remove(str.begin(), str.end(), <span class="string">'o'</span>), str.end());</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"after erase: "</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>先看下输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">before remove: helloworld</span><br><span class="line">after remove: hellwrldld</span><br><span class="line">ret_end: hellwrld</span><br><span class="line">before erase: helloworld</span><br><span class="line">after erase: hellwrld</span><br></pre></td></tr></table></figure>
+<p>具体看下remove的接口，cpluscplus手册上的链接<a href="http://www.cplusplus.com/reference/algorithm/remove/" target="_blank" rel="noopener">std::remove</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator</span>, <span class="title">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class">  <span class="title">ForwardIterator</span> <span class="title">remove</span> (<span class="title">ForwardIterator</span> <span class="title">first</span>, <span class="title">ForwardIterator</span> <span class="title">last</span>, <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">val</span>);</span></span><br></pre></td></tr></table></figure>
+<p>输入三个参数：迭代器起始，迭代器结束，要移除的值；</p>
+<p>返回：迭代器，指向未移去的最后一个元素的下一个位置；</p>
+<p>手册里面有一句解释：</p>
+<blockquote>
+<p>The range between first and this iterator includes all the elements in the sequence that do not compare equal to val.</p>
+</blockquote>
+<p><strong>[first  return)之间（不包含return指定的元素，到前一个截止），包含的是所有和val不等的元素</strong>，如上面demo中ret_end所示：</p>
+<blockquote>
+<p>ret_end: hellwrld   // first到ret_end包含所有不等于 ‘o’ 的序列, ret_end则指向的是‘ld’之后的那个‘l’</p>
+</blockquote>
+<h3><span id="remove-实现">remove 实现</span></h3><p>其实remove的实现，手册里面也有描述，就是需要理解一下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator</span>, <span class="title">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class">  <span class="title">ForwardIterator</span> <span class="title">remove</span> (<span class="title">ForwardIterator</span> <span class="title">first</span>, <span class="title">ForwardIterator</span> <span class="title">last</span>, <span class="title">const</span> <span class="title">T</span>&amp; <span class="title">val</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  ForwardIterator result = first;</span><br><span class="line">  <span class="keyword">while</span> (first!=last) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!(*first == val)) &#123;   <span class="comment">// first不等于val时，result对应的值才会更新，并指向下一个元素</span></span><br><span class="line">      *result = move(*first);</span><br><span class="line">      ++result;</span><br><span class="line">    &#125;</span><br><span class="line">    ++first;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>就到这。。顺便吐槽 一下csdn上面的一些帖子，看了好多篇，也没有说到点子上，还有解释错的，更是有抄错的。。</p>
 
       
     </div>
 
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/11/Leetcode-595-Big-Countries/" rel="next" title="[Leetcode]595. Big Countries">
+                <i class="fa fa-chevron-left"></i> [Leetcode]595. Big Countries
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -462,8 +643,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -642,6 +832,23 @@
       </div>
 
       
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">C++ remove erase 用法浅析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">remove 用法浅析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">remove 实现</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
       
 
@@ -804,6 +1011,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -849,6 +1060,8 @@
 
 
 
+
+  
 
 
   
