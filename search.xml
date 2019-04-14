@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《左耳听风》ARTS打卡计划-week-4]]></title>
+    <url>%2F2019%2F04%2F14%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-4%2F</url>
+    <content type="text"><![CDATA[ARTS week-4Algorithm [Leetcode]804. Unique Morse Code Words [Leetcode]929. Unique Email Addresses [Leetcode]595. Big Countries ReviewData scientist: The sexiest job of the 22nd century 决策者需要知道数据科学家能做什么，而不是数据科学家什么都能做，首先应该避免以下问题： 毫无技术领导力； 没数据就别谈效果，巧妇难为无米之炊； 垃圾透顶的工具（开发工具、开发语言、运行平台等）； 如果什么事都由你来做，那也就不是纯粹的数据科学家了； 关于工具和平台，应该是个完善的体系，而不是玩具，也不是说买买买就一定好用，适合更重要； 从设计师的视角看问题； 千万不要在一家没有数据的公司成为数据科学家； 为什么作者说数据科学家是22世纪最性感的工作，而不是现在？可能是这个世纪对数据科学家太不“友好”了。 Tip超级剪切板Ditto，windows下的剪切板神奇，历史拷贝都会保存，还能包含图片，文档等，极力推荐。 ShareC++ remove erase 用法浅析]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[C++ remove erase 用法浅析]]></title>
     <url>%2F2019%2F04%2F12%2FC-remove-erase-%E7%94%A8%E6%B3%95%E6%B5%85%E6%9E%90%2F</url>
     <content type="text"><![CDATA[C++ remove erase 用法浅析remove 用法浅析写这篇浅析完全是意料之外的，只怪才疏学浅。 刷[Leetcode]929. Unique Email Addresses的时候不能用boost库，一脸懵逼，为了去除整个字符串中的“.”，boost库中就是一句话boost::erase_all(str, ‘.’)，但是stl库中没有现成的接口可以使用，求助Google，发现了erase和remove结合使用可以达到目的； 1local.erase(remove(local.begin(), local.end(), '.'), local.end()); // 删除local字符串中所有的'.' 但是这样的用法没玩过，不是特别好理解，写个demo验证下，先看代码： 123456789101112131415161718192021222324#include &lt;algorithm&gt;#include &lt;iostream&gt;#include &lt;iterator&gt;#include &lt;string&gt;using namespace std;int main(int argc, char *argv[])&#123; string str = "helloworld"; cout &lt;&lt; "before remove: " &lt;&lt; str &lt;&lt; endl; string::iterator ret_end = remove(str.begin(), str.end(), 'o'); // remove字符串中所有的‘o’，此时并没有真正删除 cout &lt;&lt; "after remove: " &lt;&lt; str &lt;&lt; endl; cout &lt;&lt; "ret_end: "; for (string::iterator i = str.begin(); i &lt; ret_end; i++) &#123; cout &lt;&lt; *i; // 这里打印的结果是从str的开头，到截止remove返回的应该结束的位置； &#125; cout &lt;&lt; endl; str = "helloworld"; cout &lt;&lt; "before erase: " &lt;&lt; str &lt;&lt; endl; str.erase(remove(str.begin(), str.end(), 'o'), str.end()); cout &lt;&lt; "after erase: " &lt;&lt; str &lt;&lt; endl; return 0;&#125; 先看下输出结果： 12345before remove: helloworldafter remove: hellwrldldret_end: hellwrldbefore erase: helloworldafter erase: hellwrld 具体看下remove的接口，cpluscplus手册上的链接std::remove 12template &lt;class ForwardIterator, class T&gt; ForwardIterator remove (ForwardIterator first, ForwardIterator last, const T&amp; val); 输入三个参数：迭代器起始，迭代器结束，要移除的值； 返回：迭代器，指向未移去的最后一个元素的下一个位置； 手册里面有一句解释： The range between first and this iterator includes all the elements in the sequence that do not compare equal to val. [first return)之间（不包含return指定的元素，到前一个截止），包含的是所有和val不等的元素，如上面demo中ret_end所示： ret_end: hellwrld // first到ret_end包含所有不等于 ‘o’ 的序列, ret_end则指向的是‘ld’之后的那个‘l’ remove 实现其实remove的实现，手册里面也有描述，就是需要理解一下 12345678910111213template &lt;class ForwardIterator, class T&gt; ForwardIterator remove (ForwardIterator first, ForwardIterator last, const T&amp; val)&#123; ForwardIterator result = first; while (first!=last) &#123; if (!(*first == val)) &#123; // first不等于val时，result对应的值才会更新，并指向下一个元素 *result = move(*first); ++result; &#125; ++first; &#125; return result;&#125; 就到这。。顺便吐槽 一下csdn上面的一些帖子，看了好多篇，也没有说到点子上，还有解释错的，更是有抄错的。。]]></content>
@@ -32,9 +43,9 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -45,14 +56,14 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[ARTS week-3]]></title>
-    <url>%2F2019%2F04%2F07%2FARTS-week-3%2F</url>
+    <url>%2F2019%2F04%2F07%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-3%2F</url>
     <content type="text"><![CDATA[ARTS week-3Algorithm[Leetcode]709. To Lower Case ReviewYour Productivity Hinges on How You Arrange Your Desk 你的工作效率取决于如何整理桌面 专注于实用 实践极简主义 基于你的工作和思考方式进行整理 要事放在最前面 实用多个屏幕 多一些绿色植物 适应“零桌面”习惯，保持整洁 将你的目标放在显眼的位置 放一张好看的照片 TipMac OS tags ，高效整理及访问文件或者文件夹； 最近频繁使用hexo blog 文件夹及对应的文章，还有一些整理过的文件夹，多级访问后，需要频繁点击鼠标，今天刚刚发现可以对不同的文件及文件夹进行Tag，打标签处理，将文件进行分类，快速访问。 Share[机器学习]线性回归公式推导]]></content>
       <categories>
         <category>ARTS</category>
@@ -82,14 +93,14 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[ARTS week-2]]></title>
-    <url>%2F2019%2F03%2F31%2FARTS-week-2%2F</url>
+    <url>%2F2019%2F03%2F31%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-2%2F</url>
     <content type="text"><![CDATA[ARTS week-2Algorithm[Leetcode]771.Jewels and Stones ReviewWhat I have learned after several AI projects 文章讲述了作者做AI项目的一些经验之谈 在进入AI浪潮之前，问自己三个问题： 你的业务是否是数据驱动 是否有合适并且有效的数据来支撑AI方案的实施 是否真正理解了AI是怎么工作的（如何产生效益） 小范围试错，没必要一开始就替换之前可以持续运行的系统，可能带来不可估量的损失； 知道自己想要什么，需要给AI一个明确的目标，这需要商业决策者和数据科学家共同理解并定义； AI项目的持续运行，除了架构、数据、算法外，更重要的是“人”，除了开发者，也包括使用这个AI系统，并给予真诚反馈的人； 数据集，并且是标注过的数据集，正确的数据集是关键； 基础设施：高性能的计算机，还有高带宽，高存储； AI是把双刃剑，能助你腾飞，也可能因此翻船。 Tip类Unix系统命令whatis，用来查询一个指定命令的简介信息，简要操作就像下面的动图一样。 Share读书笔记：《凤凰项目》（下）]]></content>
       <categories>
         <category>ARTS</category>
@@ -119,14 +130,14 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[ARTS week-1]]></title>
-    <url>%2F2019%2F03%2F24%2FARTS-week-1%2F</url>
+    <url>%2F2019%2F03%2F24%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-1%2F</url>
     <content type="text"><![CDATA[ARTS week-1Algorithm[Leetcode]21.Merge Two Sorted Lists ReviewI’m Leaving Google — Here’s the Real Deal Behind Google Cloud 作为一个已经离开Google的人，作者说了一些自己在谷歌云当项目经理的种种体会与感想；更是给了Google很高的评价，希望自己的三个儿子都可以在Google开始他们的职业生涯，因为Google提供了在大多数重要的科技领域中，快速学习与发展的机会。 Google是工程师和项目经理的天堂 高水平的工程师与项目经理，牛人聚集，从来不缺智慧与经验，创造着各种各样不可思议的产品，但是也绝对不会忽略员工的个人发展，有着很好的个人职业规划。 千金难买好文化 所有信息都是可以公开获得的，每周与创始人及高管的对话，另外之前也听说过，Google的代码对于所有入职员工都是可以随意访问的；同事之间的互助与合作很融洽，内部有各种不同的论坛，都能很及时的得到各种帮助。 融为一体的创新与规模 既有创新，有能将小小的创新最后做成规模化的产品服务大众。 以为Google只是这样止步以此？在AWS和AZure的夹击下，Google依然迎头赶上，做出了Google Cloud，通过大家的努力，也赢得了一些不同需求的客户，走在做强做大的道路上。 文章中出现的一些英文缩写，比如IMO，一开始并不知道什么意思，查了之后，才知道是In My Opinion的意思，附上查询英文缩写的网站 https://www.acronymfinder.com/ Tipssh指定端口及免密登录 去年4.1号用gcp搭的梯子，下周就过期了，这周新建了gcp进行梯子的搭建，将gcp默认的ssh端口22修改成了其他数字，在ssh命令后面增加-p参数，即可更改； 以前使用ssh时，都是使用用户名密码进行登录，但是gcp默认没有设置对应的密码，查过一番后，是可以免密登录的，创建对应的公钥和私钥，ssh命令后面增加-i参数，指定对应的私钥，在gcp的元数据中，增加对应的公钥，即可实现免密登录，拷贝私钥到不同的电脑上，还可以实现在多台电脑上能进行ssh的免密登录，后续维护vps也更方便了。 假设私钥是private-ssh-key，端口是12345，命令就类似下面这样，生成公钥、私钥对，使用“ssh-keygen”命令，具体再详细google或者查man手册。 1ssh -i private-ssh-key -p 12345 username@192.168.1.123 Share读书笔记：《凤凰项目》（一）]]></content>
       <categories>
         <category>ARTS</category>
@@ -156,9 +167,9 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -321,9 +332,9 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -346,9 +357,9 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -359,9 +370,9 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -372,9 +383,9 @@
         <category>Leetcode</category>
       </categories>
       <tags>
+        <tag>Leetcode</tag>
         <tag>Algorithm</tag>
         <tag>算法</tag>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
