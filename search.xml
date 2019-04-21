@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《左耳听风》ARTS打卡计划-week-5]]></title>
+    <url>%2F2019%2F04%2F21%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-5%2F</url>
+    <content type="text"><![CDATA[ARTS week-5Algorithm[Leetcode]905. Sort Array By Parity Review23 great Pandas codes for Data Scientists 这周的review只算是勉强完成，后续会用扇贝对应的文章进行review Tipclose(0) 的坑 If fclose(0) is called, does this close stdin? 多线程的使用中，如果没有判断socket的文件描述符是否大于0，而直接close(0)，会导致不知名的崩溃，stackoverflow也有了对应的说明。 SharePyTorch 线性回归]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PyTorch 线性回归]]></title>
     <url>%2F2019%2F04%2F21%2FPyTorch-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%2F</url>
     <content type="text"><![CDATA[线性回归线性回归是机器学习中最基本的模型，也是必须掌握的模型，其中涉及到最小二乘法，均方误差等，目的就是求得一条直线拟合一些点，首先生成如下图片的点，下面会用pytorch代码实现直线的拟合。 PyTorch代码实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465import torchimport numpy as npimport torch.nn.functional as Fimport matplotlib.pyplot as plt# y = 5.2x+3 一元线性函数，斜率 5.2，截距3true_w = 5.2true_b = 3x = torch.unsqueeze(torch.linspace(-2, 2, 100), dim=1)y = true_w*x + true_b# 为y值增加高斯噪音，弄得像随机的，等下拟合出一条直线来回归这些点y = y + torch.randn(x.size()) # 打印散点图plt.scatter(x.data.numpy(), y.data.numpy())plt.show()# plt更新plt.ion()plt.show()# 定义一个线性回归的类，继承于Moduleclass LinearRegression(torch.nn.Module): def __init__(self): super(LinearRegression, self).__init__() self.linear = torch.nn.Linear(1, 1) # 线性模型，一个输入，一个输出 def forward(self, x): return self.linear(x) model = LinearRegression()# 均方误差损失loss_function = torch.nn.MSELoss()# 随机梯度下降，学习率 1e-3optimizer = torch.optim.SGD(model.parameters(), lr=1e-3)# 另外一个优化方法 Adam#optimizer = torch.optim.Adam(model.parameters(), lr=2e-2)# 迭代次数 2000epochs_num = 2000for epoch in range(epochs_num): # forward out = model(x) loss = loss_function(out, y) # backward optimizer.zero_grad() # 梯度还原为零 loss.backward() # 反向传播 optimizer.step() # 更新参数 if (epoch+1) % 20 == 0: # print('Epoch[&#123;&#125;/&#123;&#125;], loss: &#123;:.6f&#125;'.format(epoch+1,epochs_num,loss.data.item())) plt.cla() plt.scatter(x.data.numpy(), y.data.numpy()) plt.plot(x.data.numpy(), out.data.numpy(), 'r-', lw=5) plt.text(-2, 12, 'Loss=%.4f' % loss.data.numpy(), fontdict=&#123;'size':15, 'color':'red'&#125;) plt.pause(0.1)plt.ioff()plt.show() 可以调整学习率、迭代次数、优化方法，看看不同的调整，会有什么不同的结果 学习率太小，可能导致迭代速度过慢，迭代次数结束后，损失还很大 学习率太大，可能导致无法收敛，并出现振荡，迭代结束后，损失依然大 Adam使用的学习率与SDG使用的学习率并不一定会一样 最后拟合出来的图像如下图： 代码也可以查看我的GitHub仓库LinearRegression，如有错误，欢迎指出。]]></content>
