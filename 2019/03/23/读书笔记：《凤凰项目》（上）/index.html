@@ -615,8 +615,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/24/《左耳听风》ARTS打卡计划-week-1/" rel="prev" title="ARTS week-1">
-                ARTS week-1 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/24/《左耳听风》ARTS打卡计划-week-1/" rel="prev" title="《左耳听风》ARTS打卡计划-week-1">
+                《左耳听风》ARTS打卡计划-week-1 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -922,11 +922,14 @@
 
   <script>
     (function() {
-      var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=58409176";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+	  var host = window.location.hostname;
+      if (host !== "localhost") {	
+          var hm = document.createElement("script");
+          hm.src = "//tajs.qq.com/stats?sId=58409176";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+      }
+	})();
   </script>
 
 
