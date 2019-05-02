@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode]832. Flipping an Image]]></title>
+    <url>%2F2019%2F05%2F02%2FLeetCode-832-Flipping-an-Image%2F</url>
+    <content type="text"><![CDATA[832. Flipping an ImageGiven a binary matrix A, we want to flip the image horizontally, then invert it, and return the resulting image. To flip an image horizontally means that each row of the image is reversed. For example, flipping [1, 1, 0] horizontally results in [0, 1, 1]. To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0. For example, inverting [0, 1, 1] results in [1, 0, 0]. Example 1: 1234Input: [[1,1,0],[1,0,1],[0,0,0]]Output: [[1,0,0],[0,1,0],[1,1,1]]Explanation: First reverse each row: [[0,1,1],[1,0,1],[0,0,0]].Then, invert the image: [[1,0,0],[0,1,0],[1,1,1]] Example 2: 1234Input: [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]] Notes: 1 &lt;= A.length = A[0].length &lt;= 20 0 &lt;= A[i][j] &lt;= 1 题目大概解释一下：二维数组，水平翻转，再取反。 方案一思路：遍历每一行，对每行的元素先做翻转，再取反，时间复杂度 n^2 12345678910111213141516171819class Solution &#123;public: vector&lt;int&gt; reversAndInvert(vector&lt;int&gt; &amp;in) &#123; int len = in.size(); vector&lt;int&gt; out(len); for(int i = 0; i &lt; len; ++i) &#123; out[i] = !in.at(len-1-i); &#125; return out; &#125; vector&lt;vector&lt;int&gt;&gt; flipAndInvertImage(vector&lt;vector&lt;int&gt;&gt;&amp; A) &#123; int len = A.size(); vector&lt;vector&lt;int&gt;&gt; result(len); for(int i = 0; i &lt; len; ++i) &#123; result[i] = reversAndInvert(A.at(i)); &#125; return result; &#125;&#125;; resultRuntime: 20 ms, faster than 21.52% of C++ online submissions for Flipping an Image. Memory Usage: 9.3 MB, less than 100.00% of C++ online submissions for Flipping an Image. 预料到时间会比较高，毕竟时间复杂度是 n^2（后面解释，慢竟然不是因为这个原因）。 方案二从讨论区里面找到一个方案，再稍微修改下，使用了reverse函数，并通过引用修改原有元素，而且使用了异或操作。 123456789101112class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; flipAndInvertImage(vector&lt;vector&lt;int&gt;&gt;&amp; A) &#123; for (auto &amp; row : A) &#123; reverse(row.begin(), row.end()); for (int &amp; i: row) &#123; i ^= 1; &#125; &#125; return A; &#125;&#125;; resultRuntime: 12 ms, faster than 100.00% of C++ online submissions for Flipping an Image. Memory Usage: 9.3 MB, less than 99.61% of C++ online submissions for Flipping an Image. 其实套路基本差不多，但是有个很关键的操作 i ^= 1;，这个异或操作比方案一的 ! 操作，效率高很多。 把方案一的 ! 操作，换成异或后，也得到了类似的效果，不过新开辟的vector就多了空间复杂度。 Runtime: 12 ms, faster than 100.00% of C++ online submissions for Flipping an Image. Memory Usage: 9.5 MB, less than 99.22% of C++ online submissions for Flipping an Image.]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《左耳听风》ARTS打卡计划-week-6]]></title>
     <url>%2F2019%2F04%2F28%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-6%2F</url>
     <content type="text"><![CDATA[ARTS week-6Algorithm[LeetCode]977. Squares of a Sorted Array ReviewAs a Leader, Time Is Your Most Valuable Resource 作为领导者，时间是你最有价值的资源。 要确保你做的所有事都是在帮助你完成最重要的那个目标。 就像凯勒･帕帕森的书《最重要的事，只有一件》。 还有一个规则，就是断舍离，留下那个丢弃后造成痛苦最大的东西。 Tiptuple，可以存放不同类型元素的容器，这周在一个功能开发中使用到了； 手册地址：tuple SharePyTorch 逻辑回归]]></content>
