@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://c1rew.github.io/2019/05/12/Jupyter-Notebook%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2019-05-12</lastmod>
+  </url>  <url>
     <loc>https://c1rew.github.io/2019/05/11/LeetCode-657-Robot-Return-to-Origin/</loc>
     <lastmod>2019-05-11</lastmod>
   </url>  <url>
@@ -103,10 +106,10 @@
     <loc>https://c1rew.github.io/2016/10/07/Linux%E5%86%85%E6%A0%B8%E5%AD%90%E7%B3%BB%E7%BB%9F/</loc>
     <lastmod>2018-06-30</lastmod>
   </url>  <url>
-    <loc>https://c1rew.github.io/2018/04/15/Python%E4%B9%8B%E8%B7%AF(%E4%B8%80)%E6%95%B0%E7%BB%84%E5%92%8C%E5%85%83%E7%BB%84/</loc>
+    <loc>https://c1rew.github.io/2017/02/18/Python%E7%88%AC%E8%99%AB%E4%B9%8B%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1TOP250/</loc>
     <lastmod>2018-06-30</lastmod>
   </url>  <url>
-    <loc>https://c1rew.github.io/2017/02/18/Python%E7%88%AC%E8%99%AB%E4%B9%8B%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1TOP250/</loc>
+    <loc>https://c1rew.github.io/2018/04/15/Python%E4%B9%8B%E8%B7%AF(%E4%B8%80)%E6%95%B0%E7%BB%84%E5%92%8C%E5%85%83%E7%BB%84/</loc>
     <lastmod>2018-06-30</lastmod>
   </url>  <url>
     <loc>https://c1rew.github.io/2015/06/03/SQL-injection-SQL-%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB-%E5%8E%9F%E7%90%86%E6%B5%85%E6%9E%90/</loc>
