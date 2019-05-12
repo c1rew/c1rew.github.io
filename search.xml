@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[《左耳听风》ARTS打卡计划-week-8]]></title>
+    <url>%2F2019%2F05%2F12%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-8%2F</url>
+    <content type="text"><![CDATA[ARTS week-8Algorithm[LeetCode]657. Robot Return to Origin ReviewGoogle Takes a Bite Out of Apple 苹果作为软硬件一体的公司，过去对于隐私的控制始终都处在业界领先；不过这一次的Google IO大会之后，这个优势可能会有所减弱； 控制隐私和安全成了此次Google IO大会的一大主题，也成为Google开发许多产品的基石，包括很多产品的隐身模式，还有人脸识别的本地化，最重要的一个产品，应该是人工智能的联合学习，不再需要一堆的数据上传到服务器进行集中训练，而是在终端就可以进行个人数据的个性化学习； 随着全球公众以及政府监管对于隐私安全的逐渐重视，Google对于隐私安全的重视更像是无奈之举，否则可能面临难以估量的后果。 TipJupyter notebook删除cell，Esc—&gt;dd。 Jupyter notebook快捷键 Share[Jupyter notebook配置]]></content>
+      <categories>
+        <category>ARTS</category>
+      </categories>
+      <tags>
+        <tag>ARTS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Jupyter Notebook配置]]></title>
     <url>%2F2019%2F05%2F12%2FJupyter-Notebook%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[起因每次更换电脑或者要新建一个Jupyter Notebook环境，都要查找好几个网站，去配置好开发环境，记录一下所有配置，以后就不用频繁使用搜索引擎，却只为了寻找几句配置。 简介Jupyter Notebook是个开源的Web应用，可以创建包含代码、公式、可视化及叙事文本的共享文档； 支持超过40种编程语言 可共享的notebook 交互式的输出 集成大数据工具 配置1. 生成配置文件1jupyter notebook --generate-config 2. 设置密码1jupyter notebook password 3. 修改配置文件12345vim ~/.jupyter/jupyter_notebook_config.py修改以下三个节点的配置，并把开头的 # 注释去掉c.NotebookApp.ip = '*' # 开启所有的IP访问，即可使用远程访问c.NotebookApp.open_browser = False # 关闭启动后的自动开启浏览器c.NotebookApp.port = 8888 # 设置端口8888，也可用其他的，比如1080，8080等等 4. 启动notebook1jupyter notebook 5. 远程访问在浏览器输入http://hostip:8888，hostip可以是本地地址，局域网地址，也可以是远程服务器地址(比如阿里云或者AWS或者其他云服务器厂商的VPS外网地址)。 6. 主题12345678pip install jupyterthemes# list available themes# onedork | grade3 | oceans16 | chesterish | monokai | solarizedl | solarizeddjt -l# select theme...jt -t chesterish 详细步骤还可以查看该工程的github主页：https://github.com/dunovank/jupyter-themes Reference https://jupyter.readthedocs.io/en/latest/projects/config.html https://github.com/dunovank/jupyter-themes]]></content>
