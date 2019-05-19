@@ -136,8 +136,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode]905. Sort Array By Parity]]></title>
-    <url>%2F2019%2F04%2F15%2FLeetcode-905-Sort-Array-By-Parity%2F</url>
+    <title><![CDATA[[LeetCode]905. Sort Array By Parity]]></title>
+    <url>%2F2019%2F04%2F15%2FLeetCode-905-Sort-Array-By-Parity%2F</url>
     <content type="text"><![CDATA[905. Sort Array By ParityGiven an array A of non-negative integers, return an array consisting of all the even elements of A, followed by all the odd elements of A. You may return any answer array that satisfies this condition. Example 1: 123Input: [3,1,2,4]Output: [2,4,3,1]The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted. Note: 1 &lt;= A.length &lt;= 5000 0 &lt;= A[i] &lt;= 5000 题目解析：将奇偶数排序，偶数在前，奇数在后，偶/奇数内部无需关心排序； 方案一思路：一个数组，遍历数组，新建一个vector用于返回，偶数在前面插入，奇数在后面插入； 1234567891011121314class Solution &#123;public: vector&lt;int&gt; sortArrayByParity(vector&lt;int&gt;&amp; A) &#123; vector&lt;int&gt; out; for (const int item: A) &#123; if (item % 2 == 0) &#123; out.emplace(out.begin(), item); &#125; else &#123; out.emplace_back(item); &#125; &#125; return out; &#125;&#125;; resultRuntime: 64 ms, faster than 10.14% of C++ online submissions for Sort Array By Parity. Memory Usage: 9.9 MB, less than 98.71% of C++ online submissions for Sort Array By Parity. 执行时间太多了！怎么这么慢 方案二 返回的数组大小也是固定的，初始化固定长度的vector； 循环迭代的同时赋值，对应index++或者index—； 其中 &amp; 运算和 % 运算，从效率上来说并没有差别，换了之后也差不多； 123456789101112131415class Solution &#123;public: vector&lt;int&gt; sortArrayByParity(vector&lt;int&gt;&amp; A) &#123; int len = A.size(); vector&lt;int&gt; out(len); for (int i = 0, begin_out = 0, end_out = len - 1; i &lt; len; i++) &#123; if (A[i] &amp; 1) &#123; out[end_out--] = A[i]; &#125; else &#123; out[begin_out++] = A[i]; &#125; &#125; return move(out); &#125;&#125;; resultRuntime: 28 ms, faster than 98.35% of C++ online submissions for Sort Array By Parity. Memory Usage: 9.7 MB, less than 99.36% of C++ online submissions for Sort Array By Parity. 方案三高手在民间，网友出绝招，讨论区的解决方案，效率上差不多，就是相当简洁。 12345678class Solution &#123;public: vector&lt;int&gt; sortArrayByParity(vector&lt;int&gt;&amp; A) &#123; auto is_even = [] (auto e) &#123; return e % 2 == 0; &#125;; partition (A.begin (), A.end (), is_even); return A; &#125;&#125;; resultRuntime: 28 ms, faster than 98.35% of C++ online submissions for Sort Array By Parity. Memory Usage: 9.6 MB, less than 99.36% of C++ online submissions for Sort Array By Parity.]]></content>
       <categories>
         <category>LeetCode</category>
@@ -172,8 +172,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode]595. Big Countries]]></title>
-    <url>%2F2019%2F04%2F11%2FLeetcode-595-Big-Countries%2F</url>
+    <title><![CDATA[[LeetCode]595. Big Countries]]></title>
+    <url>%2F2019%2F04%2F11%2FLeetCode-595-Big-Countries%2F</url>
     <content type="text"><![CDATA[595. Big Countries今天这道题，是个sql语句的题目，选出符合条件的数据； There is a table World 123456789+-----------------+------------+------------+--------------+---------------+| name | continent | area | population | gdp |+-----------------+------------+------------+--------------+---------------+| Afghanistan | Asia | 652230 | 25500100 | 20343000 || Albania | Europe | 28748 | 2831741 | 12960000 || Algeria | Africa | 2381741 | 37100000 | 188681000 || Andorra | Europe | 468 | 78115 | 3712000 || Angola | Africa | 1246700 | 20609294 | 100990000 |+-----------------+------------+------------+--------------+---------------+ A country is big if it has an area of bigger than 3 million square km or a population of more than 25 million. Write a SQL solution to output big countries’ name, population and area. For example, according to the above table, we should output: 123456+--------------+-------------+--------------+| name | population | area |+--------------+-------------+--------------+| Afghanistan | 25500100 | 652230 || Algeria | 37100000 | 2381741 |+--------------+-------------+--------------+ 比较简单，select where就可以解决了； 1select name, population, area from World where area&gt;3000000 or population&gt;25000000; resultRuntime: 196 ms, faster than 82.98% of MySQL online submissions for Big Countries. 结果有点惊讶，这么简单的还会有更好的解决办法？讨论区看了一眼，发现这么一个语句： 1SELECT name, population, area FROM World WHERE area &gt; 3000000 UNION SELECT name, population, area FROM World WHERE population &gt; 25000000; 奇迹出现了？？ 并没有。。。执行完效率并没有好多少，半斤八两。 这个时候就Google一番，or 和 union差在哪里，以下几篇文章有点参考意义。 mysql 实战 or、in与union all 的查询效率 SQL Performance UNION vs OR Whether to use UNION or OR in SQL Server Queries 总的来说，性能差异并不是绝对的，都需要针对实际数据进行实际的测试与验证，其中有一点是关键，对于非索引字段，or是肯定胜过union了。]]></content>
       <categories>
         <category>LeetCode</category>
@@ -184,8 +184,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode]929. Unique Email Addresses]]></title>
-    <url>%2F2019%2F04%2F09%2FLeetcode-929-Unique-Email-Addresses%2F</url>
+    <title><![CDATA[[LeetCode]929. Unique Email Addresses]]></title>
+    <url>%2F2019%2F04%2F09%2FLeetCode-929-Unique-Email-Addresses%2F</url>
     <content type="text"><![CDATA[929. Unique Email AddressesEvery email consists of a local name and a domain name, separated by the @ sign. For example, in alice@leetcode.com, alice is the local name, and leetcode.com is the domain name. Besides lowercase letters, these emails may contain &#39;.&#39;s or &#39;+&#39;s. If you add periods (&#39;.&#39;) between some characters in the local name part of an email address, mail sent there will be forwarded to the same address without dots in the local name. For example, &quot;alice.z@leetcode.com&quot; and &quot;alicez@leetcode.com&quot; forward to the same email address. (Note that this rule does not apply for domain names.) If you add a plus (&#39;+&#39;) in the local name, everything after the first plus sign will be ignored. This allows certain emails to be filtered, for example m.y+name@email.com will be forwarded to my@email.com. (Again, this rule does not apply for domain names.) It is possible to use both of these rules at the same time. Given a list of emails, we send one email to each address in the list. How many different addresses actually receive mails? Example 1: 123Input: [&quot;test.email+alex@leetcode.com&quot;,&quot;test.e.mail+bob.cathy@leetcode.com&quot;,&quot;testemail+david@lee.tcode.com&quot;]Output: 2Explanation: &quot;testemail@leetcode.com&quot; and &quot;testemail@lee.tcode.com&quot; actually receive mails Note: 1 &lt;= emails[i].length &lt;= 100 1 &lt;= emails.length &lt;= 100 Each emails[i] contains exactly one &#39;@&#39; character. All local and domain names are non-empty. Local names do not start with a &#39;+&#39; character. 大概解释一下题目： 邮箱地址中，本地名称部分可能包含“.”和“+”，其中“.”会直接被忽略掉，而第一个’+’之后，到‘@’之前，则会被截断； 输入：一个邮箱地址的数组； 输出：处理后的邮箱地址，不重复的有多少个； 方案一 local name 和domain name 分开处理，否则domain name的‘.’可能会被错误去除； local name中可能包含多个“+”和多个“.”，“+”比较好处理，后面的直接截断；但是多个“.”就必须循环处理了； 123456789101112131415161718192021class Solution &#123;public: int numUniqueEmails(vector&lt;string&gt;&amp; emails) &#123; set&lt;string&gt; email_set; for (string &amp;email : emails) &#123; int atindex = email.find('@'); string local = email.substr(0, atindex); string domain = email.substr(atindex); int plusindex = local.find('+'); if (plusindex != string::npos) &#123; local.erase(plusindex, atindex-plusindex); &#125; if(local.find('.') != string::npos) &#123; local.erase(remove(local.begin(), local.end(), '.'), local.end()); &#125; email_set.insert(local+domain); &#125; return email_set.size(); &#125;&#125;; resultRuntime: 36 ms, faster than 87.14% of C++ online submissions for Unique Email Addresses.Memory Usage: 12.9 MB, less than 87.81% of C++ online submissions for Unique Email Addresses. 方案二：方案一效果不是特别好，local部分其实循环处理了两次，可以把整个字符串从头到尾每个字符判断一遍； 123456789101112131415161718192021222324252627class Solution &#123;public: int numUniqueEmails(vector&lt;string&gt;&amp; emails) &#123; unordered_set&lt;string&gt; emails_set; for (const string&amp; email : emails) &#123; string out; bool at = false; bool plus = false; for (char c : email) &#123; if (c == '.') &#123; if (!at) continue; &#125; else if (c == '@') &#123; at = true; &#125; else if (c == '+') &#123; if (!at) &#123; plus = true; continue; &#125; &#125; if (!at &amp;&amp; plus) continue; out += c; &#125; emails_set.insert(std::move(out)); &#125; return emails_set.size(); &#125;&#125;; resultRuntime: 32 ms, faster than 97.73% of C++ online submissions for Unique Email Addresses.Memory Usage: 11.9 MB, less than 99.28% of C++ online submissions for Unique Email Addresses. 为了降低时间复杂度，降低空间复杂度，尝试各种方法，这一题提交了20次。。。]]></content>
       <categories>
         <category>LeetCode</category>
@@ -197,8 +197,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode]804. Unique Morse Code Words]]></title>
-    <url>%2F2019%2F04%2F08%2FLeetcode-804-Unique-Morse-Code-Words%2F</url>
+    <title><![CDATA[[LeetCode]804. Unique Morse Code Words]]></title>
+    <url>%2F2019%2F04%2F08%2FLeetCode-804-Unique-Morse-Code-Words%2F</url>
     <content type="text"><![CDATA[804. Unique Morse Code WordsInternational Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: &quot;a&quot; maps to &quot;.-&quot;, &quot;b&quot; maps to &quot;-...&quot;, &quot;c&quot; maps to &quot;-.-.&quot;, and so on. For convenience, the full table for the 26 letters of the English alphabet is given below: 1[&quot;.-&quot;,&quot;-...&quot;,&quot;-.-.&quot;,&quot;-..&quot;,&quot;.&quot;,&quot;..-.&quot;,&quot;--.&quot;,&quot;....&quot;,&quot;..&quot;,&quot;.---&quot;,&quot;-.-&quot;,&quot;.-..&quot;,&quot;--&quot;,&quot;-.&quot;,&quot;---&quot;,&quot;.--.&quot;,&quot;--.-&quot;,&quot;.-.&quot;,&quot;...&quot;,&quot;-&quot;,&quot;..-&quot;,&quot;...-&quot;,&quot;.--&quot;,&quot;-..-&quot;,&quot;-.--&quot;,&quot;--..&quot;] Now, given a list of words, each word can be written as a concatenation of the Morse code of each letter. For example, “cba” can be written as “-.-..—…”, (which is the concatenation “-.-.” + “-…” + “.-“). We’ll call such a concatenation, the transformation of a word. Return the number of different transformations among all words we have. 1234567891011Example:Input: words = [&quot;gin&quot;, &quot;zen&quot;, &quot;gig&quot;, &quot;msg&quot;]Output: 2Explanation: The transformation of each word is:&quot;gin&quot; -&gt; &quot;--...-.&quot;&quot;zen&quot; -&gt; &quot;--...-.&quot;&quot;gig&quot; -&gt; &quot;--...--.&quot;&quot;msg&quot; -&gt; &quot;--...--.&quot;There are 2 different transformations, &quot;--...-.&quot; and &quot;--...--.&quot;. Note: The length of words will be at most 100. Each words[i] will have length in range [1, 12]. words[i] will only consist of lowercase letters. 大概解释一下题目：摩斯码，26个小写字母各对应一串密码串，不同的英文单词可能出现同样的摩斯码； 输入：一个数组，数组中包含多个单词； 输出：单词转换成摩斯码后，总的摩斯编码类别有几种； 解题思路： 要得到不同的摩斯码，就是不能有重复的，就可以用集合(set)来存储转换后的摩斯码； 26个小写字母对应的摩斯码是固定的，就用数组直接初始化； 字母a对应的ASCII码为97，数组第一个元素的索引index为0，直接减去97即可得到对应的摩斯码编码； 循环遍历vector中的word，循环遍历word中的每一个字母； 代码如下： 123456789101112131415161718class Solution &#123;public: int uniqueMorseRepresentations(vector&lt;string&gt;&amp; words) &#123; string morse[26] = &#123;".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."&#125;; set&lt;string&gt; morse_set; string str_morse; for (string &amp;word : words) &#123; unsigned len = word.length(); for(unsigned i = 0; i &lt; len; ++i) &#123; unsigned index = (unsigned)(word[i]-97); str_morse.append(morse[index]); &#125; morse_set.insert(str_morse); str_morse.clear(); &#125; return morse_set.size(); &#125;&#125;; resultRuntime: 4 ms, faster than 100.00% of C++ online submissions for Unique Morse Code Words.Memory Usage: 8.7 MB, less than 100.00% of C++ online submissions for Unique Morse Code Words.]]></content>
       <categories>
         <category>LeetCode</category>
@@ -234,8 +234,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode]709. To Lower Case]]></title>
-    <url>%2F2019%2F04%2F01%2FLeetcode-709-To-Lower-Case%2F</url>
+    <title><![CDATA[[LeetCode]709. To Lower Case]]></title>
+    <url>%2F2019%2F04%2F01%2FLeetCode-709-To-Lower-Case%2F</url>
     <content type="text"><![CDATA[709. To Lower CaseImplement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase. 题目很简单，说的就是英文字符串，转换成小写。 Example 1: 12Input: &quot;Hello&quot;Output: &quot;hello&quot; Example 2: 12Input: &quot;here&quot;Output: &quot;here&quot; Example 3: 12Input: &quot;LOVELY&quot;Output: &quot;lovely&quot; 方案一首先想到的就是遍历字符串，判断每一个字符是否是大写，如果是大写，则按照ASCII码，转换成小写后，添加到一个新的字符串里； 123456789101112131415class Solution &#123;public: string toLowerCase(string str) &#123; string out; for(char &amp;i : str) &#123; if ((i &gt;= 65) &amp;&amp; (i &lt;= 90)) &#123; i=i+32; out.push_back(i); &#125; else &#123; out.push_back(i); &#125; &#125; return out; &#125;&#125;; resultRuntime: 4 ms, faster than 100.00% of C++ online submissions for To Lower Case. Memory Usage: 8.3 MB, less than 50.42% of C++ online submissions for To Lower Case. 结果看起来还可以，内存占用有点高，想着怎么优化一下； 方案二string out，占用了一个新建的字符串，是不是可以在原来的字符串里面修改？try try see. 12345678910111213class Solution &#123;public: string toLowerCase(string str) &#123; unsigned int len = str.length(); for(unsigned i = 0; i &lt; len; ++i) &#123; char ch = str[i]; if ((ch &gt;= 65) &amp;&amp; (ch &lt;= 90)) &#123; str[i]=ch+32; &#125; &#125; return str; &#125;&#125;; resultRuntime: 4 ms, faster than 100.00% of C++ online submissions for To Lower Case. Memory Usage: 8 MB, less than 99.17% of C++ online submissions for To Lower Case. 内存占用降低了点，效果还可以。]]></content>
       <categories>
         <category>LeetCode</category>
@@ -271,8 +271,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode]771.Jewels and Stones]]></title>
-    <url>%2F2019%2F03%2F26%2FLeetcode-771-Jewels-and-Stones%2F</url>
+    <title><![CDATA[[LeetCode]771.Jewels and Stones]]></title>
+    <url>%2F2019%2F03%2F26%2FLeetCode-771-Jewels-and-Stones%2F</url>
     <content type="text"><![CDATA[771. Jewels and StonesYou’re given strings J representing the types of stones that are jewels, and S representing the stones you have. Each character in S is a type of stone you have. You want to know how many of the stones you have are also jewels. The letters in J are guaranteed distinct, and all characters in J and S are letters. Letters are case sensitive, so &quot;a&quot; is considered a different type of stone from &quot;A&quot;. Example 1: 12Input: J = &quot;aA&quot;, S = &quot;aAAbbbb&quot;Output: 3 Example 2: 12Input: J = &quot;z&quot;, S = &quot;ZZ&quot;Output: 0 Note: S and J will consist of letters and have length at most 50. The characters in J are distinct. 解释一下题目： 在第二个字符串中，找出在第一个字符串中出现的字符的个数，其中，第一个字符串中的字符是不重复的。 思路：对于是否在第一个字符中出现，可以把第一个字符串的字符当做一个集合，再去判断元素是否在集合中，两个循环即可解决。 123456789101112131415161718class Solution &#123;public: int numJewelsInStones(string J, string S) &#123; int size = J.length(); set&lt;char&gt; jewel_set; for (unsigned int i = 0; i &lt; size; ++i) &#123; jewel_set.insert(J[i]); &#125; int count = 0; size = S.length(); for (unsigned int i = 0; i &lt; size; ++i) &#123; if (jewel_set.count(S[i])) &#123; count++; &#125; &#125; return count; &#125;&#125;; resultRuntime: 8 ms, faster than 74.17% of C++ online submissions for Jewels and Stones. Memory Usage: 9.9 MB, less than 54.58% of C++ online submissions for Jewels and Stones. 代码再简洁优化下，使用C++11的for循环，并且增加const限定符，程序快了，内存占用也降低了。 123456789101112131415161718class Solution &#123;public: int numJewelsInStones(string J, string S) &#123; int size = J.length(); set&lt;char&gt; jewel_set; for (const char &amp;ch : J) &#123; jewel_set.insert(ch); &#125; int count = 0; size = S.length(); for (const char &amp;ch: S) &#123; if (jewel_set.count(ch)) &#123; count++; &#125; &#125; return count; &#125;&#125;; resultRuntime: 4 ms, faster than 100.00% of C++ online submissions for Jewels and Stones. Memory Usage: 8.6 MB, less than 98.64% of C++ online submissions for Jewels and Stones.]]></content>
       <categories>
         <category>LeetCode</category>
@@ -308,8 +308,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode]21.Merge Two Sorted Lists]]></title>
-    <url>%2F2019%2F03%2F22%2FLeetcode-21-Merge-Two-Sorted-Lists%2F</url>
+    <title><![CDATA[[LeetCode]21.Merge Two Sorted Lists]]></title>
+    <url>%2F2019%2F03%2F22%2FLeetCode-21-Merge-Two-Sorted-Lists%2F</url>
     <content type="text"><![CDATA[21. Merge Two Sorted ListsMerge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4 给定有序的两个数组，合并两个数组，并保持有序。这其实是归并排序的其中一个步骤。 1234567891011121314151617181920212223242526272829/** * Definition for singly-linked list. * struct ListNode &#123; * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) &#123;&#125; * &#125;; */class Solution &#123;public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) &#123; if(l1 == NULL &amp;&amp; l2 == NULL) return NULL; if(l1 == NULL &amp;&amp; l2 != NULL) return l2; if(l1 != NULL &amp;&amp; l2 == NULL) return l1; ListNode* result; if (l1-&gt;val &lt;= l2-&gt;val) &#123; result = l1; l1 = l1-&gt;next; result-&gt;next = mergeTwoLists(l1, l2); &#125; else &#123; result = l2; l2 = l2-&gt;next; result-&gt;next = mergeTwoLists(l1, l2); &#125; return result; &#125;&#125;; tip: 两个参数是否空指针需要判断 result提交过程错了两次，一次是因为空指针，一次是因为判断大小的语句里，还多余判断了一次下一个元素是不是空指针，导致少了个元素。 Runtime: 20 ms, faster than 9.56% of C++ online submissions for Merge Two Sorted Lists.Memory Usage: 9.9 MB, less than 88.65% of C++ online submissions for Merge Two Sorted Lists. 内存占用太大，还有改进空间。 有个疑惑，其中一段代码改成以下这样后，内存占用竟然升高到10.1M 1234567if (l1-&gt;val &lt;= l2-&gt;val) &#123; result = l1; result-&gt;next = mergeTwoLists(l1-&gt;next, l2); &#125; else &#123; result = l2; result-&gt;next = mergeTwoLists(l1, l2-&gt;next); &#125;]]></content>
       <categories>
         <category>LeetCode</category>
@@ -473,7 +473,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode] 100. Same Tree]]></title>
+    <title><![CDATA[[LeetCode] 100. Same Tree]]></title>
     <url>%2F2015%2F06%2F30%2FLeetcode-100-Same-Tree%2F</url>
     <content type="text"><![CDATA[100.Same TreeGiven two binary trees, write a function to check if they are equal or not. Two binary trees are considered equal if they are structurally identical and the nodes have the same value. 给定两个二叉树，写个函数来检查他们是否相等； 考虑两个二叉树的相等于否，需要判断他们结构上是否一致并且对应每个节点上的值是否相等。 12345678910111213141516171819/*** Definition for binary tree* struct TreeNode &#123;* int val;* TreeNode *left;* TreeNode *right;* TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;* &#125;;*/class Solution &#123;public: bool isSameTree(TreeNode *p, TreeNode *q) &#123; if (p == NULL &amp;&amp; q == NULL) return true; if ((!p &amp;&amp; q) || (p &amp;&amp; !q) || (p-&gt;val != q-&gt;val)) return false; return isSameTree(p-&gt;left, q-&gt;left) &amp;&amp; isSameTree(p-&gt;right, q-&gt;right); &#125;&#125;; tip: 两树都为空，返回true； 两树其中一个为空，另一个不为空，或者值不相等，返回false； 当前节点值相等，则嵌套判断两树的左右树是否相等；]]></content>
       <categories>
@@ -498,8 +498,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode] 27.Remove Element]]></title>
-    <url>%2F2015%2F06%2F23%2FLeetcode-27-Remove-Element%2F</url>
+    <title><![CDATA[[LeetCode] 27.Remove Element]]></title>
+    <url>%2F2015%2F06%2F23%2FLeetCode-27-Remove-Element%2F</url>
     <content type="text"><![CDATA[27.Remove ElementGiven an array and a value, remove all instances of that value in place and return the new length. The order of elements can be changed. It doesn’t matter what you leave beyond the new length. 给定一个整型数组 A 和一个整型数 v，删除 A 中所有与 v 相等的元素，并返回新的数组长度； 元素的顺序可以更改，这并不影响你返回新的数组长度的大小。 1234567891011121314class Solution &#123;public: int removeElement(int A[], int n, int elem) &#123; int j = 0; for (int i = 0; i &lt; n; i++) &#123; if(A[i] == elem) &#123; continue; &#125; else &#123; A[j++] = A[i]; &#125; &#125; return j; &#125;&#125;; tip: 不能多开辟空间，只能使用原有的数据，那就定义两个位移来分别判断； 一开始出现的错误是更改过的串A[j++]没有赋值，只做了j++； 可以再简洁一点123456789101112class Solution &#123;public: int removeElement(int A[], int n, int elem) &#123; int j = 0; for (int i = 0; i &lt; n; i++) &#123; if(A[i] != elem) &#123; A[j++] = A[i]; &#125; &#125; return j; &#125;&#125;;]]></content>
       <categories>
         <category>LeetCode</category>
@@ -511,8 +511,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode] 7.Reverse Integer]]></title>
-    <url>%2F2015%2F06%2F18%2FLeetcode-7-Reverse-Integer%2F</url>
+    <title><![CDATA[[LeetCode] 7.Reverse Integer]]></title>
+    <url>%2F2015%2F06%2F18%2FLeetCode-7-Reverse-Integer%2F</url>
     <content type="text"><![CDATA[7.Reverse IntegerReverse digits of an integer. Example1: x = 123, return 321Example2: x = -123, return -321 整数反转，忽略符号部分。 12345678910111213141516171819202122232425class Solution &#123;public: int reverse(int x) &#123; bool isPositive = true; if (x == INT_MIN || x == INT_MAX) return 0; if (x &lt; 0) &#123; isPositive = false; x *= -1; &#125; long long res = 0; while(x) &#123; res = res*10 + x%10; x/=10; &#125; if(res &gt; INT_MAX) return 0; if(!isPositive) &#123; res *= -1; &#125; return res; &#125;&#125;; tip:1.一开始漏掉了最前面一句判断的，溢出之后都要返回0；2.然后是后面反转之后，因为定义的是long long，所以也要判断返回的是否会溢出。]]></content>
       <categories>
         <category>LeetCode</category>
@@ -524,8 +524,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[[Leetcode] 1.Two Sum]]></title>
-    <url>%2F2015%2F06%2F14%2FLeetcode-1-Two-Sum%2F</url>
+    <title><![CDATA[[LeetCode] 1.Two Sum]]></title>
+    <url>%2F2015%2F06%2F14%2FLeetCode-1-Two-Sum%2F</url>
     <content type="text"><![CDATA[1. Two SumGiven an array of integers, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based. You may assume that each input would have exactly one solution. Input: numbers={2, 7, 11, 15}, target=9 Output: index1=1, index2=2 给定一个整型数组，找到两个数，使得两个数相加的和为指定的目标数； 注意：索引1必须小于索引2 (index1 &lt; index2) 12345678910111213141516171819class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt; &amp;numbers, int target) &#123; int vSize = numbers.size(); vector&lt;int&gt; vIndex; map&lt;int,int&gt; mapNum; int index; for (int i = 0; i &lt; vSize; ++i) &#123; index = mapNum[target - numbers[i]]; if(index) &#123; vIndex.push_back(index); vIndex.push_back(i+1); break; &#125; mapNum[numbers[i]] = i+1; &#125; return vIndex; &#125;&#125;; tip: 暴力解决, 两个for循环, 时间复杂度达到了O(n^2), 不符合要求； 用空间换时间，把对应数及索引创建一个map； 从目标数里减去一个数，查找另外一个数是否在map中，over； note:12vIndex.push_back(index);vIndex.push_back(i+1); 这两句话顺序不可互换, 因为结果要求index1 &lt; index2; index 查找出来的数, 其实是在这句代码1mapNum[numbers[i]] = i+1; 已经加入map中的, 索引 i 一直在递增, 所以 index &lt;= i, 要先加入到返回的vector中。]]></content>
       <categories>
         <category>LeetCode</category>
