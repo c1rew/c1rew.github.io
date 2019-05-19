@@ -474,7 +474,7 @@
   </entry>
   <entry>
     <title><![CDATA[[LeetCode] 100. Same Tree]]></title>
-    <url>%2F2015%2F06%2F30%2FLeetcode-100-Same-Tree%2F</url>
+    <url>%2F2015%2F06%2F30%2FLeetCode-100-Same-Tree%2F</url>
     <content type="text"><![CDATA[100.Same TreeGiven two binary trees, write a function to check if they are equal or not. Two binary trees are considered equal if they are structurally identical and the nodes have the same value. 给定两个二叉树，写个函数来检查他们是否相等； 考虑两个二叉树的相等于否，需要判断他们结构上是否一致并且对应每个节点上的值是否相等。 12345678910111213141516171819/*** Definition for binary tree* struct TreeNode &#123;* int val;* TreeNode *left;* TreeNode *right;* TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;* &#125;;*/class Solution &#123;public: bool isSameTree(TreeNode *p, TreeNode *q) &#123; if (p == NULL &amp;&amp; q == NULL) return true; if ((!p &amp;&amp; q) || (p &amp;&amp; !q) || (p-&gt;val != q-&gt;val)) return false; return isSameTree(p-&gt;left, q-&gt;left) &amp;&amp; isSameTree(p-&gt;right, q-&gt;right); &#125;&#125;; tip: 两树都为空，返回true； 两树其中一个为空，另一个不为空，或者值不相等，返回false； 当前节点值相等，则嵌套判断两树的左右树是否相等；]]></content>
       <categories>
         <category>LeetCode</category>
