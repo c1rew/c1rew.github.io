@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode]461. Hamming Distance]]></title>
+    <url>%2F2019%2F05%2F21%2FLeetCode-461-Hamming-Distance%2F</url>
+    <content type="text"><![CDATA[461. Hamming DistanceThe Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance. Note:0 ≤ x, y &lt; 231. Example: 12345678910Input: x = 1, y = 4Output: 2Explanation:1 (0 0 0 1)4 (0 1 0 0) ↑ ↑The above arrows point to positions where the corresponding bits are different. 题目解释：两个整数，计算转换成二进制后，同一个位置上，两个数不同的有几个。 思路：算出所有不同的位置，直接用异或，再去统计所有异或出来的‘1’的个数。 1234567891011class Solution &#123;public: int hammingDistance(int x, int y) &#123; int n = x^y; unsigned int c =0; for (c =0; n; n &gt;&gt;=1) &#123; c += n &amp; 1; &#125; return c; &#125;&#125;; resultRuntime: 0 ms, faster than 100.00% of C++ online submissions for Hamming Distance. Memory Usage: 8.2 MB, less than 73.49% of C++ online submissions for Hamming Distance. 逛了一遍讨论区，各种奇技淫巧，效果并没有更好，找不到内存占用小于8.2MB的办法，如果有谁找到了，麻烦留言告知。 123456class Solution &#123;public: int hammingDistance(int x, int y) &#123; return bitset&lt;32&gt;(x^y).count(); &#125;&#125;; 1234567891011class Solution &#123;public: int hammingDistance(int x, int y) &#123; int dist = 0, n = x ^ y; while (n) &#123; ++dist; n &amp;= n - 1; &#125; return dist; &#125;&#125;; 123456class Solution &#123;public: int hammingDistance(int x, int y) &#123; return __builtin_popcount(x^y); &#125;&#125;;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《左耳听风》ARTS打卡计划-week-9]]></title>
     <url>%2F2019%2F05%2F19%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-9%2F</url>
     <content type="text"><![CDATA[ARTS week-9Algorithm[LeetCode]961. N-Repeated Element in Size 2N Array ReviewDon’t Use a VPN at Home 在有强wifi密码和https的情况下，使用vpn并不能带来更高的安全保护； 作者说的也是挺有道理的，不过我还是想用梯子上Google(黑脸表情)。 TipMac 截屏快捷键 Command+Shitf+4 Sharegit clone 加速]]></content>
