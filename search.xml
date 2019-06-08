@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode]561. Array Partition I]]></title>
+    <url>%2F2019%2F06%2F08%2FLeetCode-561-Array-Partition-I%2F</url>
+    <content type="text"><![CDATA[561. Array Partition IGiven an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), …, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible. Example 1: 1234Input: [1,4,3,2]Output: 4Explanation: n is 2, and the maximum sum of pairs is 4 = min(1, 2) + min(3, 4). Note: n is a positive integer, which is in the range of [1, 10000]. All the integers in the array will be in the range of [-10000, 10000]. 题目解释： 输入：一个无序数组，包含一偶数个数的数字； 输出：2n个数，分成n组，每组里面找到最小值，所有最小值加起来，得到和的最大值。 方法一思路：要先得到最小值，又要得到和的最大值，先给数组排序，每两个一组，直接取偶数位的数字相加即可。 12345678910111213class Solution &#123;public: int arrayPairSum(vector&lt;int&gt;&amp; nums) &#123; sort(nums.begin(), nums.end()); int out = 0; for(int i = 0; i &lt; nums.size(); ++i) &#123; if ((i &amp; 1) != 1) &#123; out += nums[i]; &#125; &#125; return out; &#125;&#125;; resultRuntime: 76 ms, faster than 78.80% of C++ online submissions for Array Partition I. Memory Usage: 11.2 MB, less than 70.64% of C++ online submissions for Array Partition I. 方法二没必要判断奇偶数，直接把index+2即可，但是效率差别不大； 1234567891011class Solution &#123;public: int arrayPairSum(vector&lt;int&gt;&amp; nums) &#123; sort(nums.begin(), nums.end()); int out = 0; for(int i = 0; i &lt; nums.size(); i+=2) &#123; out += nums[i]; &#125; return out; &#125;&#125;; resultRuntime: 72 ms, faster than 88.11% of C++ online submissions for Array Partition I. Memory Usage: 11.4 MB, less than 48.75% of C++ online submissions for Array Partition I.]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《左耳听风》ARTS打卡计划-week-11]]></title>
     <url>%2F2019%2F06%2F02%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-11%2F</url>
     <content type="text"><![CDATA[ARTS week-11Algorithm[LeetCode]617. Merge Two Binary Trees ReviewPlease Don’t Say Just Hello In Chat 聊天窗口里千万别只以“Hello”开头 在现在这个每个人几乎随时在线的时代，请千万别只说“在？”或者“在吗？”，有什么问题什么事，直接描述，看到了有空自然会回复，以下两种聊天内容比较一下： 123456A：在吗？B：在，有什么事？A：你现在有空吗？B：有，什么事你说吧A：我吧啦吧啦。。。B：回复... 12A：你好，我现在遇到...问题，如果你有空的话...，我尝试了...还是没有效果，需要你的帮忙B：回复... 比较下，你觉得哪种更有效率。 Tip用上 synergy ，一套键鼠，同时控制两台甚至多台电脑。 Share看下两篇关于技术总监、技术细节的文章，从不同角度分析了技术细节的利弊。 “我是技术总监，你干嘛总问我技术细节？” ”我是技术总监，我确实答不出那么多技术细节”]]></content>
