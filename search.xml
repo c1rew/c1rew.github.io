@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[LeetCode]728. Self Dividing Numbers]]></title>
+    <url>%2F2019%2F06%2F18%2FLeetCode-728-Self-Dividing-Numbers%2F</url>
+    <content type="text"><![CDATA[728. Self Dividing NumbersEasy A self-dividing number is a number that is divisible by every digit it contains. For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0, and 128 % 8 == 0. Also, a self-dividing number is not allowed to contain the digit zero. Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible. Example 1: 123Input: left = 1, right = 22Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22] Note: The boundaries of each input argument are 1 &lt;= left &lt;= right &lt;= 10000. 题目解释：判断一个数是否是自除数，即数字对各个位的上数取余等于0； 方案一思路：遍历所有数，并遍历每个数的每个位进行取余操作； 123456789101112131415161718192021class Solution &#123;public: vector&lt;int&gt; selfDividingNumbers(int left, int right) &#123; vector&lt;int&gt; output; for (int item = left; item &lt;=right; ++item) &#123; int out = item; bool is_valid = true; while (out &amp;&amp; is_valid) &#123; const int remain = out % 10; if (remain == 0 || item % remain) &#123; is_valid = false; &#125; out /= 10; &#125; if (is_valid) &#123; output.push_back(item); &#125; &#125; return output; &#125;&#125;; result:Runtime: 0 ms, faster than 100.00% of C++ online submissions for Self Dividing Numbers. Memory Usage: 8.5 MB, less than 30.71% of C++ online submissions for Self Dividing Numbers. 方案二数字用string转换，再遍历 12345678910111213141516171819class Solution &#123;public: vector&lt;int&gt; selfDividingNumbers(int left, int right) &#123; vector&lt;int&gt; output; for (int item = left; item &lt;=right; ++item) &#123; const string str = to_string(item); bool is_valid = true; for (const char ch : str) &#123; if(ch == '0' || item % (ch - '0')) &#123; is_valid = false; &#125; &#125; if (is_valid) &#123; output.push_back(item); &#125; &#125; return output; &#125;&#125;; resultRuntime: 8 ms, faster than 30.71% of C++ online submissions for Self Dividing Numbers. Memory Usage: 8.6 MB, less than 21.41% of C++ online submissions for Self Dividing Numbers. 虽然可行，但是效率还是差了点； 讨论区还有对应的使用固定大小数组进行判断的方案，在空间占用上会相对优势些： Correct C++ Solution(Numbers up to 9999) Better than 100% in runtime and 95% in storage-Better-than-100-in-runtime-and-95-in-storage&gt;) 执行结果如下： Runtime: 4 ms, faster than 86.79% of C++ online submissions for Self Dividing Numbers. Memory Usage: 8.4 MB, less than 67.63% of C++ online submissions for Self Dividing Numbers.]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+        <tag>算法</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[《左耳听风》ARTS打卡计划-week-12]]></title>
     <url>%2F2019%2F06%2F09%2F%E3%80%8A%E5%B7%A6%E8%80%B3%E5%90%AC%E9%A3%8E%E3%80%8BARTS%E6%89%93%E5%8D%A1%E8%AE%A1%E5%88%92-week-12%2F</url>
     <content type="text"><![CDATA[ARTS week-12Algorithm[LeetCode]561. Array Partition I ReviewFalsehoods Programmers Believe About Search 文章列举了105条程序猿对于搜索(引擎)的误解，可谓是句句扎心。 没做过搜索引擎，是不会知道坑有多少的；其实都不用到搜索引擎这个级别，就产品里，加一个搜索的功能，有些人都以为是非常简单并且容易实现的；这其中包括的技术点，和每个技术点实现后对应需要优化的空间，需要踩的坑还是数不胜数的。 Tip免登录下载qt http://download.qt.io/archive/qt/ Share（极客新闻）流程是用来解决问题而不是制造问题 借极客时间这篇新闻，对流程本身谈一些看法： 传统软件开发的过程中，很是讲究流程，一个大型软件从需求调研到软件开发，一直到软件的后期维护和运营，都有不同的流程管理； 在PMP项目管理理论里，也对各种流程做了详细的解释，虽然PMP本身是可裁剪的，但是总是有不可或缺的部分；不过，最终的目的都是通过合理的流程控制与精细的项目管理，交付一个满足用户需求的成品； 这里以NPI流程为例，现实的软件开发团队里，质量管理部门需要对软件质量及流程管控负责，开发团队需要对项目进度及软件质量负责；这其中可能就出现流程管控与项目进度不可协调的地方，测试团队看不到详细的需求描述，就可以根据流程，拒绝对软件进行测试； 研发人员是要做功能还是要写需求，往往就会出现冲突，这周需求还没写完，下周需求可能会出现变更； 对于流程固化的大公司，无法变通流程来对软件的开发过程进行优化，大部分执行者，只会看到流程本身，而没有意识到流程本身是为产品服务的。 在PMP理论里写到：开发生命周期可以是预测型、迭代型、增量型、适应型或混合型的模式；其中预测型就是瀑布型，也是传统软件公司的开发模式。 其实，流程没有最好的，只有最合适的，能更好解决问题的，就是最合适的。]]></content>
@@ -621,7 +634,7 @@
   <entry>
     <title><![CDATA[[LeetCode] 7.Reverse Integer]]></title>
     <url>%2F2015%2F06%2F18%2FLeetCode-7-Reverse-Integer%2F</url>
-    <content type="text"><![CDATA[7.Reverse IntegerReverse digits of an integer. Example1: x = 123, return 321Example2: x = -123, return -321 整数反转，忽略符号部分。 12345678910111213141516171819202122232425class Solution &#123;public: int reverse(int x) &#123; bool isPositive = true; if (x == INT_MIN || x == INT_MAX) return 0; if (x &lt; 0) &#123; isPositive = false; x *= -1; &#125; long long res = 0; while(x) &#123; res = res*10 + x%10; x/=10; &#125; if(res &gt; INT_MAX) return 0; if(!isPositive) &#123; res *= -1; &#125; return res; &#125;&#125;; tip:1.一开始漏掉了最前面一句判断的，溢出之后都要返回0；2.然后是后面反转之后，因为定义的是long long，所以也要判断返回的是否会溢出。]]></content>
+    <content type="text"><![CDATA[7.Reverse IntegerReverse digits of an integer. Example1: x = 123, return 321Example2: x = -123, return -321 整数反转，忽略符号部分。 123456789101112131415161718192021222324class Solution &#123;public: int reverse(int x) &#123; bool isPositive = true; if (x == INT_MIN || x == INT_MAX) return 0; if (x &lt; 0) &#123; isPositive = false; x *= -1; &#125; long long res = 0; while(x) &#123; res = res*10 + x%10; x/=10; &#125; if(res &gt; INT_MAX) return 0; if(!isPositive) &#123; res *= -1; &#125; return res; &#125;&#125;; tip:1.一开始漏掉了最前面一句判断的，溢出之后都要返回0；2.然后是后面反转之后，因为定义的是long long，所以也要判断返回的是否会溢出。]]></content>
       <categories>
         <category>LeetCode</category>
       </categories>
