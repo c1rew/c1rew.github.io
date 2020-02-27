@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[echo多行文字到文本]]></title>
+    <url>%2F2020%2F02%2F27%2Fecho%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E5%88%B0%E6%96%87%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[echo 多行文字到文本这篇文章为了记录自己写Dockerfile时踩的坑，分三部分描述echo内容到文件的用法 shell 脚本 echo 单行文字到文本 shell 脚本 echo 多行文字到文本 Dockerfile 中 echo 多行文字到文本 1. shell 脚本 echo 单行文字到文本这个是 echo 最常用的用法 12#!/bin/bashecho "test测试" &gt; a.txt 2. shell 脚本 echo 多行文字到文本1234567#!/bin/bashcat &gt;a.txt&lt;&lt;EOF # 开始test测试多行文本重定向到文件EOF # 结束 其中 EOF 表示自定义终止符，所以如果脚本写成下面这样，一样是可以使用的： 12345#!/bin/bashcat &gt;a.txt&lt;&lt;ABC # 开始test测试多行文本ABC # 结束 只不过我们正常不这么玩，这样显得太另类，也不便于多人协作时，每个人的理解。 3. Dockerfile 中 echo 多行文字到文本Dockerfile的使用场景，是在build镜像时，需要更换ubuntu的镜像源为阿里云，这个时候就需要修改sources.list。 123456789101112131415161718FROM ubuntu:18.04RUN mv /etc/apt/sources.list /etc/apt/sources_bak.list \ &amp;&amp; echo 'deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse\n\deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse\n\\n\deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse\n\deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse\n\\n\deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse\n\deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse\n\\n\deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse\n\deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse\n\\n\deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse\n\deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse\n'\&gt; /etc/apt/sources.list 4. Reference EOF是什么？ linux&lt;&lt;eof]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Dockerfile</tag>
+        <tag>echo</tag>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java字符串String相等判断equals和==的区别]]></title>
     <url>%2F2020%2F02%2F01%2FJava%E5%AD%97%E7%AC%A6%E4%B8%B2String%E7%9B%B8%E7%AD%89%E5%88%A4%E6%96%ADequals%E5%92%8C-%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[简要说明在C++中，比较两个string字符串相等，通常使用的是 ==，这也是因为string类中，对 == 运算符对应的方法做了重载。 同样的 == ，在Java中，用法可是完全不一样的；今天就说说Java字符串String判断是否相等的equals和 == 的区别。 equals()比较的是对象的内容，并且区分内容的大小写；但是如果使用 == 比较两个对象时，比较的是两个对象的内存地址，所以不相等。 即使它们内容完全相等，但是不同对象的内存地址也是不相同的。所以，一定不要使用 == 运算符检测两个字符串是否相等！ 代码验证下面用一段示例代码验证下，其中使用+或者concat()方法创建的字符串，都会构造出新的String对象 1234567891011121314151617181920212223242526public class StringEqual &#123; public static void main(String[] args) &#123; String str = "str"; String str1 = "string"; String str2 = str1; // 引用，地址相等，内容相等 String str3 = str.concat("ing"); // 新对象 String str4 = str + "ing"; // 新对象 System.out.println("str1: " + str1); System.out.println("str2: " + str2); System.out.println("str3: " + str3); System.out.println("str4: " + str4); // == System.out.println("str1 == str2: " + (str1 == str2)); System.out.println("str1 == str3: " + (str1 == str3)); System.out.println("str1 == str4: " + (str1 == str4)); System.out.println("str3 == str4: " + (str3 == str4)); // equals System.out.println("str1.equals(str2): " + str1.equals(str2)); System.out.println("str1.equals(str3): " + str1.equals(str3)); System.out.println("str1.equals(str4): " + str1.equals(str4)); System.out.println("str3.equals(str4): " + str3.equals(str4)); &#125;&#125; 上述代码执行后，看下验证结果： 123456789101112str1: stringstr2: stringstr3: stringstr4: stringstr1 == str2: truestr1 == str3: falsestr1 == str4: falsestr3 == str4: falsestr1.equals(str2): truestr1.equals(str3): truestr1.equals(str4): truestr3.equals(str4): true equals能够真实判断字符串是否相等，而 == 则问题多多，谨记该用法。]]></content>
